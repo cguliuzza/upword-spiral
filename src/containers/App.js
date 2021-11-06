@@ -1,18 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
+import { Context } from '../context/Context';
 
 function App() {
-  const [count, setCount] = useState(0);
+
+  const { findMe } = useContext(Context)
 
   useEffect(() => {
-    fetch("http://localhost:3000/hello")
-      .then((r) => r.json())
-      .then((data) => setCount(data.count));
+    findMe()
   }, []);
 
   return (
       <View style={styles.container}>
+        <Nav />
         <Text>Welcome to the Upward Spiral App</Text>
         <Text>Page Count: {count}</Text>
         <StatusBar style="auto" />
