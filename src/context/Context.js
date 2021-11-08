@@ -35,17 +35,13 @@ const ContextProvider = props => {
         })
       }
       
-      const handleLogin = ( e, emailRef, passwordRef ) => {
-        e.preventDefault()
+      const handleLogin = ( formData ) => {
         const loginObj = {
           method: "POST",
           headers: {
             "Content-Type": "application/json"
           },
-          body: JSON.stringify({
-            email: emailRef.current.value,
-            password: passwordRef.current, value
-          })
+          body: JSON.stringify(formData)
         }
         fetch("/login", loginObj)
           .then(resp => resp.json())
