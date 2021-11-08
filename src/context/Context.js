@@ -28,14 +28,42 @@ const ContextProvider = props => {
         fetch("/logout", {
           method: "DELETE"
         }) .then(data => {
-            console.log("logged out successful")
+            console.log("logged out")
             setUser({})
             setLoggedIn(false)
-            history.pushState("/")
+            history.push("/")
         })
       }
+      
+      const handleLogin = ( e, emailRef, passwordRef ) => {
+        e.preventDefault()
+        const loginObj = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            email: emailRef.current.value,
+            password: passwordRef.current, value
+          })
+        }
+        fetch("/login", loginObj)
+          .then(resp => resp.json())
+          .then((data) => {
+            console.log(data)
+            if (!data.errors) {
+              console.log("Logged in successfully!!")
+              setUser(data)
+              setLoggedIn(true)
+              history.push("/profile")
+            } else {
+              console.log("no catch: ", data.errors)
+            }
+          })
+          .catch((err) => console.log("catch: ", err))
+      }
 
-    const store = { user, setUser, loggedIn, setLoggedIn, findMe, handleLogout }
+    const store = {user, setUser, loggedIn, setLoggedIn, findMe, handleLogout, handleLogin}
 
     // props.children is the App.js which has everything we want to render
     return <Context.Provider value={store}>{props.children}</Context.Provider>
