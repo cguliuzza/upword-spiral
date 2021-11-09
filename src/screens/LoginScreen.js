@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Text, Image, StyleSheet } from 'react-native';
-import Logo from '../../../assets/images/logo-sample.jpeg';
+import Logo from '../../assets/images/logo-example.jpeg';
 
 const LoginScreen = () => {
     return (
