@@ -1,17 +1,17 @@
-import React from "react";
-import { ReactDOM } from "react-dom";
 import "./index.css";
+import React from "react";
 import App from "./containers/App";
-import { BrowserRouter } from "react-router-dom";
-import ContextProvider from "./context/Context";
+import { ReactDOM } from "react-dom";
+// import { BrowserRouter } from "react-router-dom";
+import AppStateProvider from "./src/context/AppStateProvider";
 
 ReactDOM.render (
-    <React.StrictMode>
-        <BrowserRouter>
-            <ContextProvider>
+    // <React.StrictMode>
+        /* <BrowserRouter> */
+            <AppStateProvider>
                 <App />
-            </ContextProvider>
-        </BrowserRouter>
-    </React.StrictMode>,
+            </AppStateProvider>
+        /* </BrowserRouter> */
+    // </React.StrictMode>,
     document.getElementById("root")
 );

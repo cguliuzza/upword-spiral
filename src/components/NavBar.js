@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import { Context } from "../context/Context";
+import { Context } from "../context/AppStateProvider";
 import { NavLink } from "react-router-dom";
 import { View } from 'react-native';
 
-const Nav = () => {
+const NavBar = () => {
     const { loggedIn, handleLogout } = useContext(Context)
 
 if (loggedIn) {
@@ -30,3 +30,5 @@ if (loggedIn) {
     )
 }
 }
+
+export default NavBar;

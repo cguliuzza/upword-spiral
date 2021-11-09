@@ -1,5 +1,5 @@
 import { useContext, useRef } from "react";
-import { Context } from "../context/Context";
+import { Context } from "../context/AppStateProvider";
 
 const Login = () => {
     const emailRef = useRef("")

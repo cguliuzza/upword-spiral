@@ -1,21 +1,23 @@
+import { AppStateContext } from '../context/AppStateProvider';
 import React, { useContext, useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
-import { Context } from '../context/Context';
+import NavBar from '../components/NavBar';
 
-function App() {
+const App = () => {
 
-  const { findMe } = useContext(Context)
-
+  const {findMe} = useContext(AppStateContext)
+  
   useEffect(() => {
     findMe()
   }, []);
 
   return (
       <View style={styles.container}>
-        <Nav />
+        <NavBar />
         <Text>Welcome to the Upward Spiral App</Text>
-        <Text>Page Count: {count}</Text>
+        <View><Button onClick={findMe}>Button</Button></View>
+
         <StatusBar style="auto" />
       </View>
   );
