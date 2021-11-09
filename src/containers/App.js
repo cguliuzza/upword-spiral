@@ -1,8 +1,9 @@
 import { AppStateContext } from '../context/AppStateProvider';
 import React, { useContext, useEffect } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, SafeAreaView } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import NavBar from '../components/NavBar';
+import LoginScreen from '../screens/LoginScreen';
 
 const App = () => {
 
@@ -13,13 +14,12 @@ const App = () => {
   }, []);
 
   return (
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <NavBar />
-        <Text>Welcome to the Upward Spiral App</Text>
-        <View><Button onClick={findMe}>Button</Button></View>
-
+        <Text>Upward Spiral App.js</Text>
+        <LoginScreen />
         <StatusBar style="auto" />
-      </View>
+      </SafeAreaView>
   );
 }
 
