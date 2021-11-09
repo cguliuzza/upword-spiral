@@ -1,12 +1,12 @@
-import { useHistory } from "react-router-dom";
-import React from "react";
-export const AppStateContext = React.createContext();
+// import { useHistory } from "react-router-dom";
+import React, { createContext, useState} from "react";
+export const AppStateContext = createContext();
 
 const AppStateProvider = props => {
 
   const [ user, setUser ] = useState({})
   const [ loggedIn, setLoggedIn ] = useState(false)
-  const history = useHistory()
+  // const history = useHistory()
 
   const findMe = () => {
     fetch("http://localhost:3000/me", {
@@ -29,7 +29,7 @@ const AppStateProvider = props => {
           console.log("logged out")
           setUser({})
           setLoggedIn(false)
-          history.push("/")
+          // history.push("/")
       })
     }
     
@@ -49,7 +49,7 @@ const AppStateProvider = props => {
             console.log("Logged in successfully!!")
             setUser(data)
             setLoggedIn(true)
-            history.push("/profile")
+            // history.push("/profile")
           } else {
             console.log("no catch: ", data.errors)
           }
@@ -57,7 +57,7 @@ const AppStateProvider = props => {
         .catch((err) => console.log("catch: ", err))
     }
 
-  const store = {findMe, user, setUser, loggedIn, setLoggedIn, handleLogout, handleLogin}
+  const store = {findMe, user, setUser, loggedIn, setLoggedIn, handleLogout, handleLogin, tina:"value"}
 
   return (
     <AppStateContext.Provider value={store}>

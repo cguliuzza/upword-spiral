@@ -1,5 +1,6 @@
-import { AppStateContext } from '../context/AppStateProvider';
 import React, { useContext, useEffect } from 'react';
+import { AppStateContext } from '../context/AppStateProvider';
+import AppStateProvider from '../context/AppStateProvider';
 import { StyleSheet, Text, SafeAreaView } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import NavBar from '../components/NavBar';
@@ -7,15 +8,17 @@ import LoginScreen from '../screens/LoginScreen';
 
 const App = () => {
 
-  const {findMe} = useContext(AppStateContext)
+  const context = useContext(AppStateContext)
   
   useEffect(() => {
-    findMe()
+    // findMe()
+    // console.log(value)
+    console.log(context)
   }, []);
 
   return (
       <SafeAreaView style={styles.container}>
-        <NavBar />
+        {/* <NavBar /> */}
         <Text>Upward Spiral App.js</Text>
         <LoginScreen />
         <StatusBar style="auto" />

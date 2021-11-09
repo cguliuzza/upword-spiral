@@ -1,11 +1,12 @@
 import { useContext, useRef } from "react";
-import { Context } from "../context/AppStateProvider";
+import { AppStateContext } from "../context/AppStateProvider";
 
 const Login = () => {
     const emailRef = useRef("")
     const passwordRef = useRef("")
 
-    const { handleLogin } = useContext(Context)
+    // const { handleLogin } = useContext(AppStateContext)
+    const context = useContext(AppStateContext)
     
     const refHandleLogin = (e) => {
         e.preventDefault()

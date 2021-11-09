@@ -1,12 +1,13 @@
 import { useContext } from "react";
-import { Context } from "../context/AppStateProvider";
+import { AppStateContext } from "../context/AppStateProvider";
 import { NavLink } from "react-router-dom";
 import { View } from 'react-native';
 
 const NavBar = () => {
-    const { loggedIn, handleLogout } = useContext(Context)
+    // const { loggedIn, handleLogout } = useContext(AppStateContext)
+    const context = useContext(AppStateContext)
 
-if (loggedIn) {
+if (context.loggedIn) {
     return (
         <>
             <View id="navbar">
