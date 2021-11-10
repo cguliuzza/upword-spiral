@@ -1,10 +1,20 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, StyleSheet } from 'react-native';
+import SignInScreen from './screens/SignInScreen';
 
-export default function App() {
+const App = () => {
   return (
-    <View style={}>
-      <Text>Open up App.js to start working on your app!</Text>
+    <View style={styles.root}>
+      <SignInScreen />
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  root: {
+    flex: 1,
+    backgroundColor: '#fafafa'
+  }
+})
+
+export default App;
