@@ -24,7 +24,7 @@ const { passwordConfirmation, setPasswordConfirmation } = useState('');
     }
     
     const onSignInPressed = () => {
-        console.warn("Sign In button works")
+        console.warn("Back to Sign In button works")
     }
 
     return (
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
         marginVertical: 10,
     },
     link: {
-        color: '#FDB075',
+        color: 'teal',
         fontWeight: 'bold',
     },
 })

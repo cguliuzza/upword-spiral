@@ -3,31 +3,29 @@ import { View, StyleSheet, ScrollView, Text } from 'react-native';
 import CustomInput from '../../components/CustomInput';
 import CustomButton from '../../components/CustomButton/CustomButton';
 
-const ConfirmEmailScreen = () => {
-const { emailCode, setEmailCode } = useState('');
+const NewPasswordScreen = () => {
+    const { emailCode, setEmailCode } = useState('');
+    const { newPassword, setNewPassword } = useState('');
 
-    const onConfirmPressed = () => {
-        console.warn("Confirm button works")
+
+    const onSubmitPressed = () => {
+        console.warn("Submit button works")
     }
 
     const onSignInPressed = () => {
         console.warn("Back to Sign In button works")
     }
 
-    const onResendCodePressed = () => {
-        console.warn("Resend Code button works")
-    }
-
     return (
         <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.root}>
-            <Text style={styles.title}>Confirm your Email</Text>
+            <Text style={styles.title}>Reset your Password</Text>
 
-            <CustomInput placeholder='Enter your Confirmation Code' value={emailCode} setValue={setEmailCode} />
+            <CustomInput placeholder='Confirmation Code' value={emailCode} setValue={setEmailCode} />
+
+            <CustomInput placeholder='Enter your New Password' value={newPassword} setValue={setNewPassword} />
            
-            <CustomButton text='Confirm' onPress={onConfirmPressed} type='PRIMARY' />
-
-            <CustomButton text="Resend Code" onPress={onResendCodePressed} type='SECONDARY' />
+            <CustomButton text='Submit' onPress={onSubmitPressed} type='PRIMARY' />
 
             <CustomButton text="Back to Sign In" onPress={onSignInPressed} type='TERTIARY' />
         </View>
@@ -56,4 +54,4 @@ const styles = StyleSheet.create({
     },
 })
 
-export default ConfirmEmailScreen;
+export default NewPasswordScreen;

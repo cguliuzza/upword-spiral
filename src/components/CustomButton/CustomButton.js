@@ -33,11 +33,20 @@ const styles = StyleSheet.create({
         backgroundColor: 'teal',
     },
 
+    container_SECONDARY: {
+        borderColor: 'teal',
+        borderWidth: 2,
+    },
+
     container_TERTIARY: {},
 
     text: {
         fontWeight: 'bold',
         color: 'white'
+    },
+
+    text_SECONDARY: {
+        color: 'teal'
     },
 
     text_TERTIARY: {
