@@ -3,6 +3,8 @@ import { View, StyleSheet, ScrollView, Text } from 'react-native';
 import CustomInput from '../../components/CustomInput';
 import CustomButton from '../../components/CustomButton/CustomButton';
 import SocialSignInButtons from '../../components/SocialSignInButtons';
+import { useNavigation } from '@react-navigation/native';
+
 
 const SignUpScreen = () => {
 const { firstName, setFirstName } = useState('');
@@ -11,8 +13,10 @@ const { email, setEmail } = useState('');
 const { password, setPassword } = useState('');
 const { passwordConfirmation, setPasswordConfirmation } = useState('');
 
+    const navigation = useNavigation();
+
     const onRegisterPressed = () => {
-        console.warn("Register button works")
+        navigation.navigate('ConfirmEmail');
     }
 
     const onTermsPressed = () => {
@@ -24,7 +28,7 @@ const { passwordConfirmation, setPasswordConfirmation } = useState('');
     }
     
     const onSignInPressed = () => {
-        console.warn("Back to Sign In button works")
+        navigation.navigate('SignIn');
     }
 
     return (

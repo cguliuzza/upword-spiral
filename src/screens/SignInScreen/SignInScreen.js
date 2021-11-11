@@ -4,23 +4,26 @@ import Logo from '../../../assets/images/logo-example.jpeg';
 import CustomInput from '../../components/CustomInput';
 import CustomButton from '../../components/CustomButton/CustomButton';
 import SocialSignInButtons from '../../components/SocialSignInButtons';
+import { useNavigation } from '@react-navigation/native';
 
 const SignInScreen = () => {
 const { email, setEmail } = useState('');
 const { password, setPassword } = useState('');
 
     const {height} = useWindowDimensions();
+    const navigation = useNavigation();
 
     const onSignInPressed = () => {
-        console.warn("Sign in button works")
+        // validate user with backend
+        navigation.navigate('Home');
     }
 
     const onForgotPasswordPressed = () => {
-        console.warn("Forgot Password button works")
+        navigation.navigate('ForgotPassword');
     }
     
     const onSignUpPressed = () => {
-        console.warn("Sign Up button works")
+        navigation.navigate('SignUp');
     }
 
     return (
