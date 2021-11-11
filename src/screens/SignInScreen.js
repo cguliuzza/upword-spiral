@@ -57,12 +57,13 @@ const { password, setPassword } = useState('');
 const styles = StyleSheet.create({
     root: {
         alignItems: 'center',
-        padding: 20
+        padding: 20,
+        paddingTop: 45
     },
     logo: {
         width: '70%',
         maxWidth: 300,
-        maxHeight: 200
+        maxHeight: 200,
     }
 })
 

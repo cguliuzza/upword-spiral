@@ -24,13 +24,13 @@ const styles = StyleSheet.create({
     container: {
         width: '100%',
         padding: 15,
-        marginVertical: 5,
+        marginVertical: 8,
         alignItems: 'center',
         borderRadius: 5
     },
 
     container_PRIMARY: {
-        backgroundColor: '#696d58',
+        backgroundColor: 'teal',
     },
 
     container_TERTIARY: {},
