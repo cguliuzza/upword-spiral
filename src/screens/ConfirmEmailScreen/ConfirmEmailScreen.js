@@ -4,7 +4,7 @@ import CustomInput from '../../components/CustomInput';
 import CustomButton from '../../components/CustomButton/CustomButton';
 import SocialSignInButtons from '../../components/SocialSignInButtons';
 
-const SignUpScreen = () => {
+const ConfirmEmailScreen = () => {
 const { firstName, setFirstName } = useState('');
 const { lastName, setLastName } = useState('');
 const { email, setEmail } = useState('');
@@ -30,7 +30,7 @@ const { passwordConfirmation, setPasswordConfirmation } = useState('');
     return (
         <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.root}>
-            <Text style={styles.title}>Create an Account</Text>
+            <Text style={styles.title}>Confirm your Email</Text>
 
             <CustomInput placeholder='First Name' value={firstName} setValue={setFirstName} />
             <CustomInput placeholder='Last Name' value={lastName} setValue={setLastName} />
@@ -70,8 +70,7 @@ const styles = StyleSheet.create({
     },
     link: {
         color: '#FDB075',
-        fontWeight: 'bold',
     },
 })
 
-export default SignUpScreen;
+export default ConfirmEmailScreen;
