@@ -1,13 +1,13 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import SignInScreen from './screens/SignInScreen/SignInScreen';
-// import SignUpScreen from './screens/SignUpScreen/SignUpScreen';
+import SignUpScreen from './screens/SignUpScreen/SignUpScreen';
 
 const App = () => {
   return (
     <View style={styles.root}>
-      <SignInScreen />
-      {/* <SignUpScreen /> */}
+      {/* <SignInScreen /> */}
+      <SignUpScreen />
     </View>
   );
 }

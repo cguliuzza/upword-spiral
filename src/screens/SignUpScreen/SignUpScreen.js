@@ -1,70 +1,79 @@
 import React, { useState } from 'react';
-import { View, Image, StyleSheet, useWindowDimensions, ScrollView } from 'react-native';
-import Logo from '../../assets/images/logo-example.jpeg';
+import { View, StyleSheet, ScrollView, Text } from 'react-native';
 import CustomInput from '../../components/CustomInput';
 import CustomButton from '../../components/CustomButton/CustomButton';
+import SocialSignInButtons from '../../components/SocialSignInButtons';
 
 const SignUpScreen = () => {
-// const { email, setEmail } = useState('');
-// const { password, setPassword } = useState('');
+const { firstName, setFirstName } = useState('');
+const { lastName, setLastName } = useState('');
+const { email, setEmail } = useState('');
+const { password, setPassword } = useState('');
+const { passwordConfirmation, setPasswordConfirmation } = useState('');
 
-//     const {height} = useWindowDimensions();
+    const onRegisterPressed = () => {
+        console.warn("Register button works")
+    }
 
-//     const onSignInPressed = () => {
-//         console.warn("Sign in button works")
-//     }
+    const onTermsPressed = () => {
+        console.warn("Terms and Conditions button works")
+    }
 
-//     const onForgotPasswordPressed = () => {
-//         console.warn("Forgot Password button works")
-//     }
+    const onPrivacyPolicyPressed = () => {
+        console.warn("Privacy Policy button works")
+    }
     
-//     const onSignInFacebook = () => {
-//         console.warn("Facebook button works")
-//     }
-//     const onSignInGoogle = () => {
-//         console.warn("Google button works")
-//     }
-//     const onSignInApple = () => {
-//         console.warn("Apple button works")
-//     }
+
     
-//     const onSignUpPressed = () => {
-//         console.warn("Sign Up button works")
-//     }
+    const onSignUpPressed = () => {
+        console.warn("Sign Up button works")
+    }
 
 
-//     return (
-//         <ScrollView showsVerticalScrollIndicator={false}>
-//         <View style={styles.root}>
-//             <Image source={Logo} style={styles.logo, {height: height * 0.3}} />
+    return (
+        <ScrollView showsVerticalScrollIndicator={false}>
+        <View style={styles.root}>
+            <Text style={styles.title}>Create an Account</Text>
 
-//             <CustomInput placeholder='Email' value={email} setValue={setEmail} />
-//             <CustomInput placeholder='Password' value={password} setValue={setPassword} secureTextEntry={true} />
+            <CustomInput placeholder='First Name' value={firstName} setValue={setFirstName} />
+            <CustomInput placeholder='Last Name' value={lastName} setValue={setLastName} />
+            <CustomInput placeholder='Email' value={email} setValue={setEmail} />
+            <CustomInput placeholder='Password' value={password} setValue={setPassword} secureTextEntry={true} />
+            <CustomInput placeholder='Password Confirmation' value={passwordConfirmation} setValue={setPasswordConfirmation} secureTextEntry={true} />
 
-//             <CustomButton text='Sign In' onPress={onSignInPressed} type='PRIMARY' />
-//             <CustomButton text='Forgot password?' onPress={onForgotPasswordPressed} type='TERTIARY' />
+            <CustomButton text='Register' onPress={onRegisterPressed} type='PRIMARY' />
+            <Text style={styles.text}>By registering you are agreeing to the{' '}
+                <Text style={styles.link} onPress={onTermsPressed}>Terms and Conditions</Text> and{' '} 
+                <Text style={styles.link} onPress={onPrivacyPolicyPressed}>Privacy Policy</Text>.
+            </Text>
 
-//             <CustomButton text='Sign In with Facebook' onPress={onSignInFacebook} bgroundColor='#E7EAF4' fgroundColor='#4765A9' />
-//             <CustomButton text='Sign In with Google' onPress={onSignInGoogle} bgroundColor='#FAE9EA' fgroundColor='#DD4D44' />
-//             <CustomButton text='Sign In with Apple' onPress={onSignInApple} bgroundColor='#e3e3e3' fgroundColor='#363636' />
+            <SocialSignInButtons />
 
-//             <CustomButton text="Don't have an account? Create one!" onPress={onSignUpPressed} type='TERTIARY' />
-//         </View>
-//         </ScrollView>
-//     )
-// }
+            <CustomButton text="Don't have an account? Create one!" onPress={onSignUpPressed} type='TERTIARY' />
+        </View>
+        </ScrollView>
+    )
+}
 
-// const styles = StyleSheet.create({
-//     root: {
-//         alignItems: 'center',
-//         padding: 20,
-//         paddingTop: 45
-//     },
-//     logo: {
-//         width: '70%',
-//         maxWidth: 300,
-//         maxHeight: 200,
-//     }
-// })
+const styles = StyleSheet.create({
+    root: {
+        alignItems: 'center',
+        padding: 20,
+        paddingTop: 45,
+    },
+    title: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        color: '#363739',
+        margin: 10,
+    },
+    text: {
+        color: 'gray',
+        marginVertical: 10,
+    },
+    link: {
+        color: '#FDB075',
+    },
+})
 
 export default SignUpScreen;
