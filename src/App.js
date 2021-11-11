@@ -1,19 +1,11 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import SignInScreen from './screens/SignInScreen/SignInScreen';
-import SignUpScreen from './screens/SignUpScreen/SignUpScreen';
-import ConfirmEmailScreen from './screens/ConfirmEmailScreen/ConfirmEmailScreen';
-import ForgotPasswordScreen from './screens/ForgotPasswordScreen';
-import NewPasswordScreen from './screens/NewPasswordScreen/NewPasswordScreen';
+import Navigation from './navigation';
 
 const App = () => {
   return (
     <View style={styles.root}>
-      {/* <SignInScreen /> */}
-      {/* <SignUpScreen /> */}
-      {/* <ConfirmEmailScreen /> */}
-      {/* <ForgotPasswordScreen /> */}
-      <NewPasswordScreen />
+      <Navigation />
     </View>
   );
 }
