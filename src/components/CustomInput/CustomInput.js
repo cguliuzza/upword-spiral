@@ -26,6 +26,9 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10,
         marginVertical: 5
     },
+    container_TEXTBOX: {
+        height: '40%',
+    },
     input: {
         color: '#363739'
     }

@@ -1,25 +1,30 @@
 import React, { useState } from 'react'
 import { View, Text, ScrollView, StyleSheet } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
-// import CustomInput from '../../components/CustomInput';
+import CustomInput from '../../components/CustomInput';
 import CustomButton from '../../components/CustomButton/CustomButton';
 
 
-const HomeScreen = () => {
+const JournalScreen = () => {
+    const { title, setTitle } = useState('');
+    const { message, setMessage } = useState('');
     
     const navigation = useNavigation();
 
-    const onJournalPressed = () => {
-        console.warn('Time to Journal');
-        navigation.navigate('Journal')
+    const onSavePressed = () => {
+        console.warn('Saved');
+        navigation.navigate('Home')
     }
 
     return (
         <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.root}>
             <Text style={{ fontSize: 35, alignItems: 'center' }}>Home, sweet home!</Text>
+
+            <CustomInput type='TEXTBOX' placeholder="Title" value={title} setValue={setTitle}/>
+            <CustomInput type='TEXTBOX' placeholder="What's on your mind?" value={message} setValue={setMessage}/>
             
-            <CustomButton  text='Write in Journal' onPress={onJournalPressed} type='PRIMARY' />
+            <CustomButton  text='Save' onPress={onSavePressed} type='PRIMARY' />
         </View>
         </ScrollView>
     )
@@ -33,4 +38,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default HomeScreen;
+export default JournalScreen;
