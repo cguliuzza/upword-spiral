@@ -21,7 +21,7 @@ const JournalScreen = () => {
         <View style={styles.root}>
             <Text style={{ fontSize: 35, alignItems: 'center' }}>Home, sweet home!</Text>
 
-            <CustomInput type='TEXTBOX' placeholder="Title" value={title} setValue={setTitle}/>
+            <CustomInput placeholder="Title" value={title} setValue={setTitle}/>
             <CustomInput type='TEXTBOX' placeholder="What's on your mind?" value={message} setValue={setMessage}/>
             
             <CustomButton  text='Save' onPress={onSavePressed} type='PRIMARY' />
