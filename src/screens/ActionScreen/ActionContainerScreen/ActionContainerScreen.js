@@ -29,7 +29,7 @@ const ActionContainerScreen = () => {
         <View style={styles.root}>
             <Text style={{ fontSize: 35, alignItems: 'center' }}>5 Minute Moments</Text>
 
-            <View>{actions.map(action => <ActionCard action={action} key={action.id} />)}</View>
+            <View>{actions.map(action => <ActionCard action={action} key={action.id} />).reverse()}</View>
 
             {/* <CustomButton  text='Create New Action' onPress={onCreateActionPressed} type='PRIMARY' /> */}
             <CustomButton  text='Home' onPress={onHomePressed} type='PRIMARY' />

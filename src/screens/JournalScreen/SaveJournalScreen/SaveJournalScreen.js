@@ -5,42 +5,55 @@ import CustomInput from '../../../components/CustomInput/CustomInput';
 import CustomButton from '../../../components/CustomButton/CustomButton'
 
 const SaveJournalScreen = ({ }) => {
-    const { title, setTitle } = useState('');
-    const { message, setMessage } = useState('');
-    const { journals, setJournals } = useState('');
+    // const { title, setTitle } = useState('');
+    // const { message, setMessage } = useState('');
+    const [ journalData, setJournalData ] = useState({
+      title: '',
+      message: ''
+    });
+    const [ journals, setJournals ] = useState('');
     
     const navigation = useNavigation();
 
-    const onSavePressed = () => {
-      e.preventDefault()
+    const handleAddJournal = (newJournal) => {
+      setJournals([...journals, newJournal]);
+      navigation.navigate('JournalContainer')
+    }
+
+    const handleChange = (event) => {
+      event.preventDefault()
+
+      setJournalData({
+        ...journalData, 
+        [event.target.name]: [event.target.value]
+      })
+    }
+
+    const onSavePressed = (event) => {
+      event.preventDefault()
       fetch("http://localhost:3000/api/v1/journals", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          title: e.target.title.value,
-          message: e.target.message.value
+          journalData
         })
       })
       .then(res => res.json())
-      .then(newJournal => renderNewJournal(newJournal))
+      .then(newJournal => handleAddJournal(newJournal))
       
       console.warn('Saved');
-      navigation.navigate('JournalContainer')
     }
-    
-    const renderNewJournal = ( newJournal ) => {
-      setJournals(...journals, newJournal)
-    } 
 
     return (
         <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.root}>
             <Text style={{ fontSize: 35, alignItems: 'center' }}>Home, sweet home!</Text>
 
-            <CustomInput placeholder='Title' name='title' value={title} setValue={setTitle}/>
-            <CustomInput type='TEXTBOX' placeholder="What's on your mind?" name='message' value={message} setValue={setMessage}/>
+            <CustomInput placeholder='Title' name='title' value={journalData.title} onChange={handleChange} />
+
+            <CustomInput type='TEXTBOX' placeholder="What's on your mind?" name='message' value={journalData.message} onChange={handleChange} />
             
             <CustomButton  text='Save' onPress={onSavePressed} type='PRIMARY' />
         </View>

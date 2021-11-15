@@ -29,7 +29,7 @@ const JournalContainerScreen = () => {
         <View style={styles.root}>
             <Text style={{ fontSize: 35, alignItems: 'center' }}>Journal Archive</Text>
 
-            <View>{journals.map(journal => <JournalCard journal={journal} key={journal.id} />)}</View>
+            <View>{journals.map(journal => <JournalCard journal={journal} key={journal.id} />).reverse()}</View>
 
             <CustomButton  text='Write in Journal' onPress={onJournalPressed} type='PRIMARY' />
             <CustomButton  text='Home' onPress={onHomePressed} type='PRIMARY' />
