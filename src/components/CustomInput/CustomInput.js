@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, TextInput, View } from 'react-native'
-import { startDetecting } from 'react-native/Libraries/Utilities/PixelRatio'
+// import { startDetecting } from 'react-native/Libraries/Utilities/PixelRatio'
 
 const CustomInput = ({ value, setValue, placeholder, secureTextEntry, type='PRIMARY' }) => {
     return (

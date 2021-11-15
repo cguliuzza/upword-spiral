@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { View, Image, StyleSheet, useWindowDimensions, ScrollView } from 'react-native';
 import Logo from '../../../assets/images/logo-example.jpeg';
-import CustomInput from '../../components/CustomInput';
+import CustomInput from '../../components/CustomInput/CustomInput';
 import CustomButton from '../../components/CustomButton/CustomButton';
-import SocialSignInButtons from '../../components/SocialSignInButtons';
+import SocialSignInButtons from '../../components/SocialSignInButtons/SocialSignInButtons';
 import { useNavigation } from '@react-navigation/native';
 
 const SignInScreen = () => {

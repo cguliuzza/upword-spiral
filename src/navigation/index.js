@@ -5,17 +5,18 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import SignInScreen from '../screens/SignInScreen/SignInScreen';
 import SignUpScreen from '../screens/SignUpScreen/SignUpScreen';
 import ConfirmEmailScreen from '../screens/ConfirmEmailScreen/ConfirmEmailScreen';
-import ForgotPasswordScreen from '../screens/ForgotPasswordScreen';
+import ForgotPasswordScreen from '../screens/ForgotPasswordScreen/ForgotPasswordScreen';
 import NewPasswordScreen from '../screens/NewPasswordScreen/NewPasswordScreen';
 import HomeScreen from '../screens/HomeScreen/HomeScreen';
-import JournalScreen from '../screens/JournalScreen';
+import SaveJournalScreen from '../screens/JournalScreen/SaveJournalScreen/SaveJournalScreen';
+import JournalContainerScreen from '../screens/JournalScreen/JournalContainerScreen/JournalContainerScreen';
 
 const Stack = createNativeStackNavigator();
 
 const Navigation = () => {
     return (
         <NavigationContainer>
-            <Stack.Navigator screenOptions={{headerShown: false}}>
+            <Stack.Navigator initialRouteName="SignIn" screenOptions={{headerShown: false}}>
                 <Stack.Screen name='SignIn' component={SignInScreen} />
                 <Stack.Screen name='SignUp' component={SignUpScreen} />
                 <Stack.Screen name='ConfirmEmail' component={ConfirmEmailScreen} />
@@ -23,7 +24,8 @@ const Navigation = () => {
                 <Stack.Screen name='NewPassword' component={NewPasswordScreen} />
                 
                 <Stack.Screen name='Home' component={HomeScreen} />
-                <Stack.Screen name='Journal' component={JournalScreen} />
+                <Stack.Screen name='SaveJournal' component={SaveJournalScreen} />
+                <Stack.Screen name='JournalContainer' component={JournalContainerScreen} options={{ title: 'Your Journal Entries' }} />
 
             </Stack.Navigator>
         </NavigationContainer>
