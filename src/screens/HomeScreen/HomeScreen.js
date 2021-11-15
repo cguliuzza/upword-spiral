@@ -17,6 +17,11 @@ const HomeScreen = () => {
         navigation.navigate('JournalContainer')
     }
 
+    const onShowActionsPressed = () => {
+        console.warn('List of Actions');
+        navigation.navigate('ActionContainer')
+    }
+
     return (
         <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.root}>
@@ -24,6 +29,7 @@ const HomeScreen = () => {
             
             <CustomButton  text='Write in Journal' onPress={onJournalPressed} type='PRIMARY' />
             <CustomButton  text='Show Journals' onPress={onShowJournalsPressed} type='PRIMARY' />
+            <CustomButton  text='Show Actions' onPress={onShowActionsPressed} type='PRIMARY' />
         </View>
         </ScrollView>
     )

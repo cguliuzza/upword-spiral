@@ -3,8 +3,6 @@ import { View, Text, ScrollView, StyleSheet } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
 import CustomInput from '../../../components/CustomInput/CustomInput';
 import CustomButton from '../../../components/CustomButton/CustomButton'
-// import GetJournal from '../../api/GetJournal';
-// import JournalCard from '../../components/CustomCard/JournalCard/JournalCard';
 
 const SaveJournalScreen = ({ }) => {
     const { title, setTitle } = useState('');
@@ -14,7 +12,6 @@ const SaveJournalScreen = ({ }) => {
     const navigation = useNavigation();
 
     const onSavePressed = () => {
-      
       e.preventDefault()
       fetch("http://localhost:3000/api/v1/journals", {
         method: "POST",

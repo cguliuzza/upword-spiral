@@ -1,6 +1,5 @@
 import React from 'react'
 import { StyleSheet, TextInput, View } from 'react-native'
-// import { startDetecting } from 'react-native/Libraries/Utilities/PixelRatio'
 
 const CustomInput = ({ value, setValue, placeholder, secureTextEntry, type='PRIMARY' }) => {
     return (
@@ -34,7 +33,6 @@ const styles = StyleSheet.create({
     },
     container_TEXTBOX: {
         height: '70%',
-        alignItems: 'flex-start',
     },
     input: {
         color: '#363739'
