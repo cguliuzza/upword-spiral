@@ -42,7 +42,6 @@ const JournalCard = ({ journal }) => {
     const styles = StyleSheet.create({
         container: {
             backgroundColor: 'white',
-            width: '95%',
             borderColor: '#e8e8e8',
             borderWidth: 1,
             borderRadius: 5,
