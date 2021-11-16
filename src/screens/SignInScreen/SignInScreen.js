@@ -3,7 +3,7 @@ import { View, Image, StyleSheet, useWindowDimensions, ScrollView } from 'react-
 import Logo from '../../../assets/images/logo-example.jpeg';
 import CustomInput from '../../components/CustomInput/CustomInput';
 import CustomButton from '../../components/CustomButton/CustomButton';
-import SocialSignInButtons from '../../components/SocialSignInButtons/SocialSignInButtons';
+// import SocialSignInButtons from '../../components/SocialSignInButtons/SocialSignInButtons';
 import { useNavigation } from '@react-navigation/native';
 
 const SignInScreen = () => {
@@ -55,27 +55,27 @@ const SignInScreen = () => {
         navigation.navigate('SignUp');
     }
 
-useEffect(() => {
-    console.log(password)
-}, [password])
+// useEffect(() => {
+//     console.log(password)
+// }, [password])
 
-const passwordChange = (event) => {
-console.log(event)
-}
+// const passwordChange = (event) => {
+// console.log(event)
+// }
 
     return (
         <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.root}>
             <Image source={Logo} style={styles.logo, {height: height * 0.3}} />
 
-            <CustomInput placeholder='Email' value={email} onChangeText={email => setEmail({email: email})} />
-            <CustomInput placeholder='Password' value={password} secureTextEntry={true} onChange={passwordChange} />
+            <CustomInput placeholder='Email' value={email} onChangeText={email => this.setEmail({email})} />
+            <CustomInput placeholder='Password' value={password} secureTextEntry={true} onChangeText={password => this.setPassword({password})} />
 
-            <CustomButton text='WORKS' onPress={onSignInPressed} type='PRIMARY' />
+            <CustomButton text='Sign In' onPress={onSignInPressed} type='PRIMARY' />
 
             <CustomButton text='Forgot password?' onPress={onForgotPasswordPressed} type='TERTIARY' />
 
-            <SocialSignInButtons />
+            {/* <SocialSignInButtons /> */}
 
             <CustomButton text="Don't have an account? Create one!" onPress={onSignUpPressed} type='TERTIARY' />
         </View>
