@@ -55,7 +55,7 @@ const SaveJournalScreen = ({ }) => {
 
             <CustomButton  text='Journal Entries' onPress={onJournalContainerPressed} type='SECONDARY' />
 
-            <CustomButton  text='Home' onPress={onHomePressed} type='SECONDARY' />
+            <CustomButton  text='Home' onPress={onHomePressed} type='TERTIARY' />
           </KeyboardAvoidingView>
         </View>
       </ScrollView>

@@ -1,35 +1,28 @@
 // import SocialSignInButtons from '../../components/SocialSignInButtons/SocialSignInButtons';
 import React, { useEffect, useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { View, Image, StyleSheet, useWindowDimensions, ScrollView } from 'react-native';
+import { View, TextInput, Image, StyleSheet, useWindowDimensions, ScrollView } from 'react-native';
 import Logo from '../../../assets/images/logo-example.jpeg';
-import CustomInput from '../../components/CustomInput/CustomInput';
 import CustomButton from '../../components/CustomButton/CustomButton';
 
 const SignInScreen = () => {
-    const [ email, setEmail ] = useState();
-    const [ password, setPassword ] = useState();
+  const navigation = useNavigation();
+  const {height} = useWindowDimensions();
 
-    const [ user, setUser ] = useState([]);
+  const [ user, setUser ] = useState([]);
 
-    const {height} = useWindowDimensions();
-    const navigation = useNavigation();
+  const [ email, setEmail ] = useState();
+  const [ password, setPassword ] = useState();
 
-    
     const onSignInPressed = ( event ) => {
-            // event.preventDefault();
-            console.log(email, password)
-            console.log('hi')
+      // Keyboard.dismiss();
             fetch('http://127.0.0.1:3000/api/v1/login', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json'
               },
-              body: JSON.stringify({email, password})
+              body: JSON.stringify({email: email, password: password})
             })
-            // REFERENCE ACTIONCONTAINERSCREEN
-            // modify state when text changes
-            //react native dev tools ??
               .then(res => {
                 if (res.ok) {
                   res.json()
@@ -58,9 +51,9 @@ const SignInScreen = () => {
         <View style={styles.root}>
             <Image source={Logo} style={styles.logo, {height: height * 0.3}} />
 
-            <CustomInput placeholder='Email' value={email} onChangeText={text => setEmail(text)} />
+            <TextInput placeholder='Email' value={email} onChangeText={text => setEmail(text)} style={styles.input} autoCapitalize='none' />
 
-            <CustomInput placeholder='Password' value={password} secureTextEntry={true} onChangeText={text => setPassword(text)} />
+            <TextInput placeholder='Password' value={password} secureTextEntry={true} onChangeText={text => setPassword(text)} style={styles.input} autoCapitalize='none' />
 
             <CustomButton text='Sign In' onPress={onSignInPressed} type='PRIMARY' />
 
@@ -75,16 +68,27 @@ const SignInScreen = () => {
 }
 
 const styles = StyleSheet.create({
-    root: {
-        alignItems: 'center',
-        padding: 20,
-        paddingTop: 45
-    },
-    logo: {
-        width: '70%',
-        maxWidth: 300,
-        maxHeight: 200,
-    }
+  root: {
+    alignItems: 'center',
+    padding: 20,
+    paddingTop: 45
+  },
+  logo: {
+    width: '70%',
+    maxWidth: 300,
+    maxHeight: 200,
+  },
+  input: {
+    paddingVertical: 15,
+    paddingHorizontal: 15,
+    backgroundColor: 'white',
+    borderRadius: 5,
+    borderColor: 'teal',
+    borderWidth: 1,
+    width: '95%',
+    marginTop: 15,
+    // marginBottom: 15,
+  },
 })
 
 export default SignInScreen;
