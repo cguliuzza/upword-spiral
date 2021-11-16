@@ -25,13 +25,18 @@ const ActionContainerScreen = () => {
     const handleAddAction = () => {
         Keyboard.dismiss();
         // FIX THIS CODE TO ADD NEW ACTION TO STATE
-        setActions([...actions, {name: actionName}, {description: actionDescription}])
+        fetch('http://localhost:3000/api/v1/actions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({name: actionName, description: actionDescription})
+      })
+
+        setActions([...actions, {name: actionName, description: actionDescription}])
         setActionName(null);
         setActionDescription(null);
     }
-    // const newAction = () => {
-    //     {{name: actionName; description: actionDescription}}
-    // }
     
     const selectAction = () => {
         navigation.navigate('ShowAction');
@@ -53,6 +58,7 @@ const ActionContainerScreen = () => {
                 style={styles.writeActionWrapper}
             >
                 <TextInput placeholder='Add action name' style={styles.input} value={actionName} type='PRIMARY' onChangeText={text => setActionName(text)} />
+
                 <TextInput placeholder='Add action description' style={styles.input} value={actionDescription} type='PRIMARY' onChangeText={text => setActionDescription(text)} />
 
                 <Pressable onPress={handleAddAction}>

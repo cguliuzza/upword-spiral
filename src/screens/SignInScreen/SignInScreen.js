@@ -7,16 +7,19 @@ import CustomInput from '../../components/CustomInput/CustomInput';
 import CustomButton from '../../components/CustomButton/CustomButton';
 
 const SignInScreen = () => {
-    const { email, setEmail } = useState('');
-    const { password, setPassword } = useState('');
-    const { user, setUser } = useState('');
+    const [ email, setEmail ] = useState();
+    const [ password, setPassword ] = useState();
+
+    const [ user, setUser ] = useState([]);
 
     const {height} = useWindowDimensions();
     const navigation = useNavigation();
 
+    
     const onSignInPressed = ( event ) => {
-            // console.log(email, password)
-            // console.log('hi')
+            // event.preventDefault();
+            console.log(email, password)
+            console.log('hi')
             fetch('http://127.0.0.1:3000/api/v1/login', {
               method: 'POST',
               headers: {
@@ -55,8 +58,9 @@ const SignInScreen = () => {
         <View style={styles.root}>
             <Image source={Logo} style={styles.logo, {height: height * 0.3}} />
 
-            <CustomInput placeholder='Email' value={email} onChangeText={email => this.setEmail({email})} />
-            <CustomInput placeholder='Password' value={password} secureTextEntry={true} onChangeText={password => this.setPassword({password})} />
+            <CustomInput placeholder='Email' value={email} onChangeText={text => setEmail(text)} />
+
+            <CustomInput placeholder='Password' value={password} secureTextEntry={true} onChangeText={text => setPassword(text)} />
 
             <CustomButton text='Sign In' onPress={onSignInPressed} type='PRIMARY' />
 

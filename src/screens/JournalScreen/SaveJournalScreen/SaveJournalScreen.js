@@ -51,7 +51,7 @@ const SaveJournalScreen = ({ }) => {
 
             <CustomInput placeholder='Title' name='title' value={journalData.title} onChange={handleChange} />
 
-            <CustomInput type='TEXTBOX' placeholder="What's on your mind?" name='message' value={journalData.message} onChange={handleChange} />
+            <CustomInput type='TEXTBOX' placeholder="What's on your mind?" name='message' value={journalData.message} onChange={handleChange} multiline={true} />
             
             <CustomButton  text='Save' onPress={onSavePressed} type='PRIMARY' />
         </View>
