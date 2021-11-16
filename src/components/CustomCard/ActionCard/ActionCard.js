@@ -12,7 +12,8 @@ const ActionCard = ({ action }) => {
                 {action.name}
                 </Text>
 
-                {/* <Text 
+                {/* INPUT FIELD IS NEEDED TO CREATE NEW ACTION W/ MINUTES TEXT
+                <Text 
                     value={action.minutes} 
                     style={styles.description}> 
                 {action.minutes} minute timer

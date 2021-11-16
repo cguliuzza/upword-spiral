@@ -1,10 +1,9 @@
+// import SocialSignInButtons from '../../components/SocialSignInButtons/SocialSignInButtons';
 import React, { useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
 import { View, StyleSheet, ScrollView, Text } from 'react-native';
 import CustomInput from '../../components/CustomInput/CustomInput';
 import CustomButton from '../../components/CustomButton/CustomButton';
-import SocialSignInButtons from '../../components/SocialSignInButtons/SocialSignInButtons';
-import { useNavigation } from '@react-navigation/native';
-
 
 const SignUpScreen = () => {
 const { firstName, setFirstName } = useState('');
@@ -48,7 +47,7 @@ const { passwordConfirmation, setPasswordConfirmation } = useState('');
                 <Text style={styles.link} onPress={onPrivacyPolicyPressed}>Privacy Policy</Text>.
             </Text>
 
-            <SocialSignInButtons />
+            {/* <SocialSignInButtons /> */}
 
             <CustomButton text="Have an account? Sign In!" onPress={onSignInPressed} type='TERTIARY' />
         </View>

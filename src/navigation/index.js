@@ -7,9 +7,10 @@ import SignUpScreen from '../screens/SignUpScreen/SignUpScreen';
 import ConfirmEmailScreen from '../screens/ConfirmEmailScreen/ConfirmEmailScreen';
 import ForgotPasswordScreen from '../screens/ForgotPasswordScreen/ForgotPasswordScreen';
 import NewPasswordScreen from '../screens/NewPasswordScreen/NewPasswordScreen';
+
 import HomeScreen from '../screens/HomeScreen/HomeScreen';
-import SaveJournalScreen from '../screens/JournalScreen/SaveJournalScreen/SaveJournalScreen';
 import JournalContainerScreen from '../screens/JournalScreen/JournalContainerScreen/JournalContainerScreen';
+import SaveJournalScreen from '../screens/JournalScreen/SaveJournalScreen/SaveJournalScreen';
 import ActionContainerScreen from '../screens/ActionScreen/ActionContainerScreen';
 import ShowActionScreen from '../screens/ActionScreen/ShowActionScreen/ShowActionScreen';
 

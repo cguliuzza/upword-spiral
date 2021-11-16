@@ -1,14 +1,12 @@
 import { useNavigation } from '@react-navigation/native';
 import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, ScrollView, KeyboardAvoidingView, Pressable, TextInput } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, KeyboardAvoidingView, Pressable, TextInput, Keyboard } from 'react-native';
 import CustomButton from '../../../components/CustomButton/CustomButton';
-// import CustomInput from '../../../components/CustomInput/CustomInput';
 import ActionCard from '../../../components/CustomCard/ActionCard/ActionCard';
-import { Keyboard } from 'react-native';
 
 const ActionContainerScreen = () => {
-    
     const navigation = useNavigation();
+    
     const [ actions, setActions ] = useState([])
 
     const [ actionName, setActionName ] = useState()
@@ -26,18 +24,18 @@ const ActionContainerScreen = () => {
     
     const handleAddAction = () => {
         Keyboard.dismiss();
+        // FIX THIS CODE TO ADD NEW ACTION TO STATE
         setActions([...actions, {name: actionName}, {description: actionDescription}])
         setActionName(null);
         setActionDescription(null);
     }
+    // const newAction = () => {
+    //     {{name: actionName; description: actionDescription}}
+    // }
     
     const selectAction = () => {
         navigation.navigate('ShowAction');
     }
-
-    // const newAction = () => {
-    //     {{name: actionName; description: actionDescription}}
-    // }
 
     return (
         <ScrollView showsVerticalScrollIndicator={false}>
@@ -80,7 +78,6 @@ writeActionWrapper: {
     bottom: -300,
     width: '100%',
     flexDirection: 'column',
-    // justifyContent: 'space-around',
     alignItems: 'center'
 },
 input: {

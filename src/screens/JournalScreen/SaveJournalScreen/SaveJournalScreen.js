@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
-import { View, Text, ScrollView, StyleSheet } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
+import { View, Text, ScrollView, StyleSheet } from 'react-native'
 import CustomInput from '../../../components/CustomInput/CustomInput';
 import CustomButton from '../../../components/CustomButton/CustomButton'
 
 const SaveJournalScreen = ({ }) => {
+  const navigation = useNavigation();
     // const { title, setTitle } = useState('');
     // const { message, setMessage } = useState('');
     const [ journalData, setJournalData ] = useState({
@@ -13,16 +14,13 @@ const SaveJournalScreen = ({ }) => {
     });
     const [ journals, setJournals ] = useState('');
     
-    const navigation = useNavigation();
-
     const handleAddJournal = (newJournal) => {
       setJournals([...journals, newJournal]);
       navigation.navigate('JournalContainer')
     }
 
     const handleChange = (event) => {
-      event.preventDefault()
-
+      // event.preventDefault()
       setJournalData({
         ...journalData, 
         [event.target.name]: [event.target.value]

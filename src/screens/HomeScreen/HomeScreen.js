@@ -1,12 +1,11 @@
-import React, { useState } from 'react'
-import { View, Text, ScrollView, StyleSheet } from 'react-native'
+import React from 'react'
 import { useNavigation } from '@react-navigation/native';
+import { View, Text, ScrollView, StyleSheet } from 'react-native'
 import CustomButton from '../../components/CustomButton/CustomButton';
 
 const HomeScreen = () => {
-    
     const navigation = useNavigation();
-
+    
     const onJournalPressed = () => {
         navigation.navigate('SaveJournal')
     }

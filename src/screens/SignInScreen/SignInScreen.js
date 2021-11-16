@@ -1,10 +1,10 @@
+// import SocialSignInButtons from '../../components/SocialSignInButtons/SocialSignInButtons';
 import React, { useEffect, useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
 import { View, Image, StyleSheet, useWindowDimensions, ScrollView } from 'react-native';
 import Logo from '../../../assets/images/logo-example.jpeg';
 import CustomInput from '../../components/CustomInput/CustomInput';
 import CustomButton from '../../components/CustomButton/CustomButton';
-// import SocialSignInButtons from '../../components/SocialSignInButtons/SocialSignInButtons';
-import { useNavigation } from '@react-navigation/native';
 
 const SignInScreen = () => {
     const { email, setEmail } = useState('');
@@ -15,11 +15,8 @@ const SignInScreen = () => {
     const navigation = useNavigation();
 
     const onSignInPressed = ( event ) => {
-        // validate user with backend
-
-            // event.preventDefault()
-            console.log(email, password)
-            console.log('hi')
+            // console.log(email, password)
+            // console.log('hi')
             fetch('http://127.0.0.1:3000/api/v1/login', {
               method: 'POST',
               headers: {
@@ -27,10 +24,8 @@ const SignInScreen = () => {
               },
               body: JSON.stringify({email, password})
             })
-            // send empty strings
+            // REFERENCE ACTIONCONTAINERSCREEN
             // modify state when text changes
-            // change from state to ref ??
-
             //react native dev tools ??
               .then(res => {
                 if (res.ok) {
@@ -54,14 +49,6 @@ const SignInScreen = () => {
     const onSignUpPressed = () => {
         navigation.navigate('SignUp');
     }
-
-// useEffect(() => {
-//     console.log(password)
-// }, [password])
-
-// const passwordChange = (event) => {
-// console.log(event)
-// }
 
     return (
         <ScrollView showsVerticalScrollIndicator={false}>

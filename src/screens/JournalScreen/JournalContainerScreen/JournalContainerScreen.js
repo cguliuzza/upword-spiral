@@ -1,12 +1,12 @@
-import { useNavigation } from '@react-navigation/native';
 import React, { useEffect, useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import CustomButton from '../../../components/CustomButton/CustomButton';
 import JournalCard from '../../../components/CustomCard/JournalCard/JournalCard';
 
 const JournalContainerScreen = () => {
-    
     const navigation = useNavigation();
+    
     const [ journals, setJournals ] = useState([])
     
     useEffect(() => {
