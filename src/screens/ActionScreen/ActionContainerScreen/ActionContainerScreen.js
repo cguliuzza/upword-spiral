@@ -1,5 +1,5 @@
-import { useNavigation } from '@react-navigation/native';
 import React, { useEffect, useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
 import { View, Text, StyleSheet, ScrollView, KeyboardAvoidingView, Pressable, TextInput, Keyboard } from 'react-native';
 import CustomButton from '../../../components/CustomButton/CustomButton';
 import ActionCard from '../../../components/CustomCard/ActionCard/ActionCard';
@@ -24,7 +24,6 @@ const ActionContainerScreen = () => {
     
     const handleAddAction = () => {
         Keyboard.dismiss();
-        // FIX THIS CODE TO ADD NEW ACTION TO STATE
         fetch('http://localhost:3000/api/v1/actions', {
         method: 'POST',
         headers: {

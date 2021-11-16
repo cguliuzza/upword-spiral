@@ -3,8 +3,10 @@ import { useNavigation } from '@react-navigation/native'
 import { View, Text, StyleSheet, ScrollView } from 'react-native'
 import CustomButton from '../../../components/CustomButton/CustomButton'
 
-const ShowActionScreen = () => {
+const ShowActionScreen = ( key ) => {
     const navigation = useNavigation();
+
+    console.log(key)
 
     const onHomePressed = () => {
         navigation.navigate('Home');

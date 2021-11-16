@@ -16,13 +16,16 @@ const JournalContainerScreen = () => {
     }, [])
 
     const onJournalPressed = () => {
-        console.warn('Time to Journal');
         navigation.navigate('SaveJournal')
     }
 
     const onHomePressed = () => {
         navigation.navigate('Home');
     }
+
+    //   const selectJournal = () => {
+    //     navigation.navigate('ShowJournal');
+    // }
 
     return (
         <ScrollView showsVerticalScrollIndicator={false}>
@@ -35,6 +38,11 @@ const JournalContainerScreen = () => {
             <CustomButton  text='Home' onPress={onHomePressed} type='PRIMARY' />
 
         </View>
+
+        {/* <Pressable onPress={selectJournal}>
+            <View>{journals.map(journal => <JournalCard journal={journal} key={journal.id} />).reverse()}</View>
+        </Pressable> */}
+
         </ScrollView>
     )
 }

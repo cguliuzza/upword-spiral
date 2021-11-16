@@ -32,7 +32,10 @@ const styles = StyleSheet.create({
         marginVertical: 5,
     },
     container_TEXTBOX: {
-        height: '70%',
+        height: '30%',
+        flexWrap: 'wrap',
+        // flexDirection: 'row',
+        flexShrink: 1,
     },
     input: {
         color: '#363739'
