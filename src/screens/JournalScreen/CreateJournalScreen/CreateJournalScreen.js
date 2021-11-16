@@ -3,7 +3,7 @@ import { useNavigation } from '@react-navigation/native';
 import { View, Text, TextInput, ScrollView, StyleSheet, KeyboardAvoidingView, Keyboard } from 'react-native'
 import CustomButton from '../../../components/CustomButton/CustomButton'
 
-const SaveJournalScreen = ({ }) => { 
+const CreateJournalScreen = ({ }) => { 
     const navigation = useNavigation();
 
     const [ journals, setJournals ] = useState([]);
@@ -99,5 +99,5 @@ addText: {
 }
 })
 
-export default SaveJournalScreen;
+export default CreateJournalScreen;
 

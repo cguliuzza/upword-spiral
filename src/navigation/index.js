@@ -10,7 +10,7 @@ import NewPasswordScreen from '../screens/NewPasswordScreen/NewPasswordScreen';
 
 import HomeScreen from '../screens/HomeScreen/HomeScreen';
 import JournalContainerScreen from '../screens/JournalScreen/JournalContainerScreen/JournalContainerScreen';
-import SaveJournalScreen from '../screens/JournalScreen/SaveJournalScreen/SaveJournalScreen';
+import SaveJournalScreen from '../screens/JournalScreen/CreateJournalScreen/CreateJournalScreen';
 import ActionContainerScreen from '../screens/ActionScreen/ActionContainerScreen';
 import ShowActionScreen from '../screens/ActionScreen/ShowActionScreen/ShowActionScreen';
 
