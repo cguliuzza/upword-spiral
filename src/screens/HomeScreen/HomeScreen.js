@@ -8,17 +8,14 @@ const HomeScreen = () => {
     const navigation = useNavigation();
 
     const onJournalPressed = () => {
-        console.warn('Time to Journal');
         navigation.navigate('SaveJournal')
     }
     
     const onShowJournalsPressed = () => {
-        console.warn('List of Journals');
         navigation.navigate('JournalContainer')
     }
 
     const onShowActionsPressed = () => {
-        console.warn('List of Actions');
         navigation.navigate('ActionContainer')
     }
 

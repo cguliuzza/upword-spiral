@@ -11,6 +11,7 @@ import HomeScreen from '../screens/HomeScreen/HomeScreen';
 import SaveJournalScreen from '../screens/JournalScreen/SaveJournalScreen/SaveJournalScreen';
 import JournalContainerScreen from '../screens/JournalScreen/JournalContainerScreen/JournalContainerScreen';
 import ActionContainerScreen from '../screens/ActionScreen/ActionContainerScreen';
+import ShowActionScreen from '../screens/ActionScreen/ShowActionScreen/ShowActionScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -26,8 +27,9 @@ const Navigation = () => {
                 
                 <Stack.Screen name='Home' component={HomeScreen} />
                 <Stack.Screen name='SaveJournal' component={SaveJournalScreen} />
-                <Stack.Screen name='JournalContainer' component={JournalContainerScreen} options={{ title: 'Your Journal Entries' }} />
-                <Stack.Screen name='ActionContainer' component={ActionContainerScreen} options={{ title: 'Your 5 Minute Moments' }} />
+                <Stack.Screen name='JournalContainer' component={JournalContainerScreen} />
+                <Stack.Screen name='ActionContainer' component={ActionContainerScreen} />
+                <Stack.Screen name='ShowAction' component={ShowActionScreen} />
 
             </Stack.Navigator>
         </NavigationContainer>
