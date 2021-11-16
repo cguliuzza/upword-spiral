@@ -14,6 +14,10 @@ const SaveJournalScreen = ({ }) => {
     const onHomePressed = () => {
       navigation.navigate('Home');
     }
+
+    const onJournalContainerPressed = () => {
+      navigation.navigate('JournalContainer');
+    }
     
     const handleAddJournal = () => {
       Keyboard.dismiss();
@@ -30,7 +34,7 @@ const SaveJournalScreen = ({ }) => {
       setJournalTitle(null);
       setJournalMessage(null);
 
-      navigation.navigate('JournalContainer')
+      // navigation.navigate('JournalContainer')
     }
 
     return (
@@ -48,6 +52,8 @@ const SaveJournalScreen = ({ }) => {
             {/* multiline={true} */}
             
             <CustomButton text='Save New Journal' onPress={handleAddJournal} type='PRIMARY' />
+
+            <CustomButton  text='Journal Entries' onPress={onJournalContainerPressed} type='SECONDARY' />
 
             <CustomButton  text='Home' onPress={onHomePressed} type='SECONDARY' />
           </KeyboardAvoidingView>
