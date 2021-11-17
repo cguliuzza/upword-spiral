@@ -3,7 +3,6 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { SimpleLineIcons } from '@expo/vector-icons';
-import BottomTabs from './BottomTabs/BottomTabs';
 
 import SignInScreen from '../screens/SignInScreen/SignInScreen';
 import SignUpScreen from '../screens/SignUpScreen/SignUpScreen';
@@ -28,43 +27,43 @@ const ActionStack = createStackNavigator();
 const JournalStack = createStackNavigator();
 const Tabs = createBottomTabNavigator();
 
-const headerTitle = ({ route }) => ({ title: route.params.name })
+// let headerTitleOptions = ({ route }) => ({ title: route.params.name })
 
 const HomeStackScreen = () => (
     <HomeStack.Navigator>
         <HomeStack.Screen name='Home' component={HomeScreen} />
-        <HomeStack.Screen name='CreateJournal' component={CreateJournalScreen} options={headerTitle} />
-        <HomeStack.Screen name='JournalContainer' component={JournalContainerScreen} options={headerTitle} />
-        <HomeStack.Screen name='ActionContainer' component={ActionContainerScreen} options={headerTitle} />
+        <HomeStack.Screen name='CreateJournal' component={CreateJournalScreen} />
+        <HomeStack.Screen name='JournalContainer' component={JournalContainerScreen} />
+        <HomeStack.Screen name='ActionContainer' component={ActionContainerScreen} />
     </HomeStack.Navigator>
 )
 const MotivationStackScreen = () => (
     <MotivationStack.Navigator>
-        <MotivationStack.Screen name='Motivation' component={MotivationContainerScreen} options={headerTitle} />
-        {/* <MotivationStack.Screen name='CreateMotivation' component={CreateMotivationScreen} options={headerTitle} />
-        <MotivationStack.Screen name='ShowMotivation' component={ShowMotivationScreen} options={headerTitle} />
-        <MotivationStack.Screen name='MotivationContainer' component={MotivationContainerScreen} options={headerTitle} /> */}
+        <MotivationStack.Screen name='Motivation' component={MotivationContainerScreen} />
+        {/* <MotivationStack.Screen name='CreateMotivation' component={CreateMotivationScreen} />
+        <MotivationStack.Screen name='ShowMotivation' component={ShowMotivationScreen} />
+        <MotivationStack.Screen name='MotivationContainer' component={MotivationContainerScreen} /> */}
     </MotivationStack.Navigator>
 )
 const CreateStackScreen = () => (
     <CreateStack.Navigator>
-        <CreateStack.Screen name='Create' component={CreateContainerScreen} options={headerTitle} />
-        {/* <CreateStack.Screen name='CreateMotivation' component={CreateMotivationScreen} options={headerTitle} /> */}
-        {/* <CreateStack.Screen name='CreateAction' component={CreateActionScreen} options={headerTitle} /> */}
-        <CreateStack.Screen name='CreateJournal' component={CreateJournalScreen} options={headerTitle} />
+        <CreateStack.Screen name='Create' component={CreateContainerScreen} />
+        <CreateStack.Screen name='CreateJournal' component={CreateJournalScreen} />
+        {/* <CreateStack.Screen name='CreateMotivation' component={CreateMotivationScreen} /> */}
+        {/* <CreateStack.Screen name='CreateAction' component={CreateActionScreen} /> */}
     </CreateStack.Navigator>
 )
 const ActionStackScreen = () => (
     <ActionStack.Navigator>
-        <ActionStack.Screen name='Action' component={ActionContainerScreen} options={headerTitle} />
-        <ActionStack.Screen name='ShowAction' component={ShowActionScreen} options={headerTitle} />
+        <ActionStack.Screen name='Action' component={ActionContainerScreen} />
+        <ActionStack.Screen name='ShowAction' component={ShowActionScreen} />
     </ActionStack.Navigator>
 )
 const JournalStackScreen = () => (
     <JournalStack.Navigator>
-        <JournalStack.Screen name='Journal' component={JournalContainerScreen} options={headerTitle} />
-        <JournalStack.Screen name='CreateJournal' component={CreateJournalScreen} options={headerTitle} />
-        <JournalStack.Screen name='JournalContainer' component={JournalContainerScreen} options={headerTitle} />
+        <JournalStack.Screen name='Journal' component={JournalContainerScreen} />
+        <JournalStack.Screen name='CreateJournal' component={CreateJournalScreen} />
+        <JournalStack.Screen name='JournalContainer' component={JournalContainerScreen} />
     </JournalStack.Navigator>
 )
 

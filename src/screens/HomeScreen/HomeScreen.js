@@ -3,7 +3,7 @@ import { useNavigation } from '@react-navigation/native';
 import { View, Text, ScrollView, StyleSheet } from 'react-native'
 import CustomButton from '../../components/CustomButton/CustomButton';
 
-const HomeScreen = () => {
+const HomeScreen = ({ route }) => {
     const navigation = useNavigation();
     
     const onJournalPressed = () => {
