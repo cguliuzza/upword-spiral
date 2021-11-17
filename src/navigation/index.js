@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import SplashScreen from '../screens/SplashScreen';
+import { AuthContext } from './context';
 import { SimpleLineIcons } from '@expo/vector-icons';
 
 import SignInScreen from '../screens/SignInScreen/SignInScreen';
@@ -71,6 +72,24 @@ const JournalStackScreen = () => (
 const Navigation = () => {
 
     const [ isLoading, setIsLoading ] = useState(true);
+    const [ userCookie, setUserCookie ] = useState(null);
+
+    const authContext = useMemo(() => {
+        return {
+            signIn: () => {
+                setIsLoading(false);
+                setUserCookie('cookie');
+            },
+            signUp: () => {
+                setIsLoading(false);
+                setUserCookie('cookie');
+            },
+            logOut: () => {
+                setIsLoading(false);
+                setUserCookie(null);
+            }
+        }
+    }, [])
 
     useEffect(() => {
         setTimeout(() => {
@@ -83,21 +102,24 @@ const Navigation = () => {
     }
 
     return (
+        <AuthContext.Provider value={authContext}>
         <NavigationContainer>
-            {/* <Tabs.Navigator screenOptions={{headerShown: false}}>
-                <Tabs.Screen name="Home" component={HomeStackScreen} />
-                <Tabs.Screen name="Motivation" component={MotivationStackScreen} />
-                <Tabs.Screen name="Create" component={CreateStackScreen} />
-                <Tabs.Screen name="Action" component={ActionStackScreen} />
-                <Tabs.Screen name="Journal" component={JournalStackScreen} />
-            </Tabs.Navigator> */}
-
-
-            <AuthStack.Navigator initialRouteName="SignIn" >
-                <AuthStack.Screen name='SignIn' component={SignInScreen} options={{ title: 'Sign In'}} />
-                <AuthStack.Screen name='SignUp' component={SignUpScreen} options={{ title: 'Create Account'}} />
-            </AuthStack.Navigator>
+            {userCookie ? (
+                <Tabs.Navigator screenOptions={{headerShown: false}}>
+                    <Tabs.Screen name="Home" component={HomeStackScreen} />
+                    <Tabs.Screen name="Motivation" component={MotivationStackScreen} />
+                    <Tabs.Screen name="Create" component={CreateStackScreen} />
+                    <Tabs.Screen name="Action" component={ActionStackScreen} />
+                    <Tabs.Screen name="Journal" component={JournalStackScreen} />
+                </Tabs.Navigator>
+            ) : (
+                <AuthStack.Navigator initialRouteName="SignIn" >
+                    <AuthStack.Screen name='SignIn' component={SignInScreen} options={{ title: 'Sign In'}} />
+                    <AuthStack.Screen name='SignUp' component={SignUpScreen} options={{ title: 'Create Account'}} />
+                </AuthStack.Navigator>
+            )}
         </NavigationContainer>
+        </AuthContext.Provider>
     )
 }
 

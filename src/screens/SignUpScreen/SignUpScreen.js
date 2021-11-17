@@ -1,21 +1,24 @@
 // import SocialSignInButtons from '../../components/SocialSignInButtons/SocialSignInButtons';
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigation } from '@react-navigation/native';
+import { AuthContext } from '../../navigation/context';
 import { View, StyleSheet, ScrollView, Text } from 'react-native';
 import CustomInput from '../../components/CustomInput/CustomInput';
 import CustomButton from '../../components/CustomButton/CustomButton';
 
 const SignUpScreen = () => {
-const { firstName, setFirstName } = useState('');
-const { lastName, setLastName } = useState('');
-const { email, setEmail } = useState('');
-const { password, setPassword } = useState('');
-const { passwordConfirmation, setPasswordConfirmation } = useState('');
-
     const navigation = useNavigation();
+    const { signUp } = useContext(AuthContext);
+
+    const { firstName, setFirstName } = useState('');
+    const { lastName, setLastName } = useState('');
+    const { email, setEmail } = useState('');
+    const { password, setPassword } = useState('');
+    const { passwordConfirmation, setPasswordConfirmation } = useState('');
 
     const onRegisterPressed = () => {
-        navigation.navigate('ConfirmEmail', { name: "Confirm your Email"});
+        signUp();
+        // navigation.navigate('ConfirmEmail', { name: "Confirm your Email"});
     }
 
     const onTermsPressed = () => {

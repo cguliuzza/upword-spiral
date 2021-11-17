@@ -1,12 +1,14 @@
 // import SocialSignInButtons from '../../components/SocialSignInButtons/SocialSignInButtons';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useNavigation } from '@react-navigation/native';
+import { AuthContext } from '../../navigation/context';
 import { View, TextInput, Image, StyleSheet, useWindowDimensions, ScrollView } from 'react-native';
 import Logo from '../../../assets/images/logo-example.jpeg';
 import CustomButton from '../../components/CustomButton/CustomButton';
 
 const SignInScreen = () => {
   const navigation = useNavigation();
+  const { signIn } = useContext(AuthContext);
   const {height} = useWindowDimensions();
 
   const [ user, setUser ] = useState([]);
@@ -27,9 +29,8 @@ const SignInScreen = () => {
                 if (res.ok) {
                   res.json()
                   .then(user => {
-                    setUser(user)
-                    // history.push('/groups')
-                    navigation.navigate('Home');
+                    setUser(user);
+                    signIn();
                   })
                 } else {
                   res.json()
