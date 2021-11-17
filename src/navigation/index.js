@@ -1,14 +1,15 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import SplashScreen from '../screens/SplashScreen';
 import { SimpleLineIcons } from '@expo/vector-icons';
 
 import SignInScreen from '../screens/SignInScreen/SignInScreen';
 import SignUpScreen from '../screens/SignUpScreen/SignUpScreen';
-import ConfirmEmailScreen from '../screens/ConfirmEmailScreen/ConfirmEmailScreen';
-import ForgotPasswordScreen from '../screens/ForgotPasswordScreen/ForgotPasswordScreen';
-import NewPasswordScreen from '../screens/NewPasswordScreen/NewPasswordScreen';
+// import ConfirmEmailScreen from '../screens/ConfirmEmailScreen/ConfirmEmailScreen';
+// import ForgotPasswordScreen from '../screens/ForgotPasswordScreen/ForgotPasswordScreen';
+// import NewPasswordScreen from '../screens/NewPasswordScreen/NewPasswordScreen';
 
 import HomeScreen from '../screens/HomeScreen/HomeScreen'
 import JournalContainerScreen from '../screens/JournalScreen/JournalContainerScreen/JournalContainerScreen';
@@ -69,35 +70,39 @@ const JournalStackScreen = () => (
 
 const Navigation = () => {
 
+    const [ isLoading, setIsLoading ] = useState(true);
+
+    useEffect(() => {
+        setTimeout(() => {
+            setIsLoading(false)
+        }, 1000);
+    }, [])
+
+    if (isLoading) {
+        return <SplashScreen />
+    }
+
     return (
         <NavigationContainer>
-            <Tabs.Navigator screenOptions={{headerShown: false}}>
+            {/* <Tabs.Navigator screenOptions={{headerShown: false}}>
                 <Tabs.Screen name="Home" component={HomeStackScreen} />
                 <Tabs.Screen name="Motivation" component={MotivationStackScreen} />
                 <Tabs.Screen name="Create" component={CreateStackScreen} />
                 <Tabs.Screen name="Action" component={ActionStackScreen} />
                 <Tabs.Screen name="Journal" component={JournalStackScreen} />
-            </Tabs.Navigator>
+            </Tabs.Navigator> */}
 
 
-            {/* <AuthStack.Navigator initialRouteName="SignIn" >
+            <AuthStack.Navigator initialRouteName="SignIn" >
                 <AuthStack.Screen name='SignIn' component={SignInScreen} options={{ title: 'Sign In'}} />
                 <AuthStack.Screen name='SignUp' component={SignUpScreen} options={{ title: 'Create Account'}} />
-                <AuthStack.Screen name='ConfirmEmail' component={ConfirmEmailScreen} />
-                <AuthStack.Screen name='ForgotPassword' component={ForgotPasswordScreen} />
-                <AuthStack.Screen name='NewPassword' component={NewPasswordScreen} />
-                
-            </AuthStack.Navigator> */}
+            </AuthStack.Navigator>
         </NavigationContainer>
     )
 }
 
 export default Navigation;
 
-{/* <AuthStack.Navigator initialRouteName="SignIn" screenOptions={{headerShown: false}}> */}
-{/* <Stack.Navigator initialRouteName="SignIn"> */}
-
-{/* <Stack.Screen name='SaveJournal' component={SaveJournalScreen} />
-<Stack.Screen name='JournalContainer' component={JournalContainerScreen} />
-<Stack.Screen name='ActionContainer' component={ActionContainerScreen} />
-<Stack.Screen name='ShowAction' component={ShowActionScreen} /> */}
+{/* <AuthStack.Screen name='ConfirmEmail' component={ConfirmEmailScreen} />
+<AuthStack.Screen name='ForgotPassword' component={ForgotPasswordScreen} />
+<AuthStack.Screen name='NewPassword' component={NewPasswordScreen} /> */}
