@@ -15,19 +15,19 @@ const { passwordConfirmation, setPasswordConfirmation } = useState('');
     const navigation = useNavigation();
 
     const onRegisterPressed = () => {
-        navigation.navigate('ConfirmEmail');
+        navigation.navigate('ConfirmEmail', { name: "Confirm your Email"});
     }
 
     const onTermsPressed = () => {
-        console.warn("Terms and Conditions button works")
+        console.warn("Terms and Conditions button works", { name: "Terms and Conditions"})
     }
 
     const onPrivacyPolicyPressed = () => {
-        console.warn("Privacy Policy button works")
+        console.warn("Privacy Policy button works", { name: "Privacy Policy"})
     }
     
     const onSignInPressed = () => {
-        navigation.navigate('SignIn');
+        navigation.navigate('SignIn', { name: "Sign In"});
     }
 
     return (

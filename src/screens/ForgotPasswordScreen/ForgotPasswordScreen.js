@@ -11,11 +11,11 @@ const ForgotPasswordScreen = () => {
     const { email, setEmail } = useState('');
 
     const onSendPressed = () => {
-        navigation.navigate('NewPassword');
+        navigation.navigate('NewPassword', { name: "Reset your Password"});
     }
 
     const onSignInPressed = () => {
-        navigation.navigate('SignIn');
+        navigation.navigate('SignIn', { name: "Sign In"});
     }
 
     return (

@@ -39,11 +39,11 @@ const SignInScreen = () => {
           }
 
     const onForgotPasswordPressed = () => {
-        navigation.navigate('ForgotPassword');
+        navigation.navigate('ForgotPassword', { name: "Forgot Password"});
     }
     
     const onSignUpPressed = () => {
-        navigation.navigate('SignUp');
+        navigation.navigate('SignUp', { name: "Create an Account"});
     }
 
     return (

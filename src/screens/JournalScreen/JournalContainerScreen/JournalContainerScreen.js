@@ -16,7 +16,7 @@ const JournalContainerScreen = () => {
     }, [])
 
     const onJournalPressed = () => {
-        navigation.navigate('SaveJournal')
+        navigation.navigate('CreateJournal', { name: "Create Journal"})
     }
 
     const onHomePressed = () => {

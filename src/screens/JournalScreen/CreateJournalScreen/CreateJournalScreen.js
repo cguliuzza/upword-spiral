@@ -16,7 +16,7 @@ const CreateJournalScreen = ({ }) => {
     }
 
     const onJournalContainerPressed = () => {
-      navigation.navigate('JournalContainer');
+      navigation.navigate('JournalContainer', { name: "Journal Entries"});
     }
     
     const handleAddJournal = () => {

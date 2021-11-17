@@ -7,15 +7,15 @@ const HomeScreen = () => {
     const navigation = useNavigation();
     
     const onJournalPressed = () => {
-        navigation.navigate('SaveJournal')
+        navigation.navigate('CreateJournal', { name: "Create Journal"})
     }
     
     const onShowJournalsPressed = () => {
-        navigation.navigate('JournalContainer')
+        navigation.navigate('JournalContainer', { name: "Journal Entries"})
     }
 
     const onShowActionsPressed = () => {
-        navigation.navigate('ActionContainer')
+        navigation.navigate('ActionContainer', { name: "5 Minute Moments"})
     }
 
     return (

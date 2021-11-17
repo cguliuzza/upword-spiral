@@ -38,7 +38,7 @@ const ActionContainerScreen = () => {
     }
     
     const selectAction = () => {
-        navigation.navigate('ShowAction');
+        navigation.navigate('ShowAction', { name: "5 Minute Moment"});
     }
 
     return (

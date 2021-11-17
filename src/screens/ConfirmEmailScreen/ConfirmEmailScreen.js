@@ -14,7 +14,7 @@ const ConfirmEmailScreen = () => {
     }
 
     const onSignInPressed = () => {
-        navigation.navigate('SignIn');
+        navigation.navigate('SignIn', { name: "Sign In"});
     }
 
     const onResendCodePressed = () => {
