@@ -3,7 +3,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { AuthContext } from '../../navigation/context';
 import { View, TextInput, Image, StyleSheet, useWindowDimensions, ScrollView } from 'react-native';
-import Logo from '../../../assets/images/logo-example.jpeg';
+import Logo from '../../../assets/images/LogoUpwardSpiral.png';
 import CustomButton from '../../components/CustomButton/CustomButton';
 
 const SignInScreen = () => {
@@ -50,7 +50,7 @@ const SignInScreen = () => {
     return (
         <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.root}>
-            <Image source={Logo} style={styles.logo, {height: height * 0.3}} />
+            <Image source={Logo} style={styles.logo} />
 
             <TextInput placeholder='Email' value={email} onChangeText={text => setEmail(text)} style={styles.input} autoCapitalize='none' />
 
@@ -72,12 +72,12 @@ const styles = StyleSheet.create({
   root: {
     alignItems: 'center',
     padding: 20,
-    paddingTop: 45
+    paddingTop: 1
   },
   logo: {
-    width: '70%',
-    maxWidth: 300,
-    maxHeight: 200,
+    maxWidth: 460,
+    maxHeight: 460,
+    resizeMode: 'cover'
   },
   input: {
     paddingVertical: 15,
