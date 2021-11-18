@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useMemo } from 'react'
-import { NavigationContainer } from '@react-navigation/native'
+import { NavigationContainer, Image, View } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import SplashScreen from '../screens/SplashScreen';
 import { AuthContext } from './context';
-import { SimpleLineIcons } from '@expo/vector-icons';
 
 import SignInScreen from '../screens/SignInScreen/SignInScreen';
 import SignUpScreen from '../screens/SignUpScreen/SignUpScreen';
@@ -106,7 +105,23 @@ const Navigation = () => {
         <NavigationContainer>
             {userCookie ? (
                 <Tabs.Navigator screenOptions={{headerShown: false}}>
-                    <Tabs.Screen name="Home" component={HomeStackScreen} />
+                    <Tabs.Screen name="Home" component={HomeStackScreen} 
+                    // options={{
+                    //     tabBarIcon: ({focused}) => (
+                    //         <View>
+                    //             <Image
+                    //                 source={require('../../assets/icons/home.png')}
+                    //                 resizeMode='contain'
+                    //                 style={{
+                    //                     width: 25,
+                    //                     height: 25,
+                    //                     tintColor: focused ? 'green' : 'red'
+                    //                 }}
+                    //             />
+                    //         </View>
+                    //     )
+                    // }} 
+                    />
                     <Tabs.Screen name="Motivation" component={MotivationStackScreen} />
                     <Tabs.Screen name="Create" component={CreateStackScreen} />
                     <Tabs.Screen name="Action" component={ActionStackScreen} />
