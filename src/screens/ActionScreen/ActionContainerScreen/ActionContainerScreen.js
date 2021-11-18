@@ -18,9 +18,13 @@ const ActionContainerScreen = () => {
         .then(actionData => setActions(actionData))
     }, [])
 
-    const onHomePressed = () => {
-        navigation.navigate('Home');
+    const onActionPressed = () => {
+        navigation.navigate('CreateAction');
     }
+
+    // const onHomePressed = () => {
+    //     navigation.navigate('Home');
+    // }
     
     const handleAddAction = () => {
         Keyboard.dismiss();
@@ -46,11 +50,14 @@ const ActionContainerScreen = () => {
         <View style={styles.root}>
             <Text style={{ fontSize: 35, alignItems: 'center' }}>5 Minute Moments</Text>
 
+            <CustomButton  text='Write an Action' onPress={onActionPressed} type='PRIMARY' />
+
+
         <Pressable onPress={selectAction}>
             <View>{actions.map(action => <ActionCard action={action} key={action.id} />).reverse()}</View>
         </Pressable>
 
-            <CustomButton  text='Home' onPress={onHomePressed} type='PRIMARY' />
+            {/* <CustomButton  text='Home' onPress={onHomePressed} type='PRIMARY' /> */}
 
             <KeyboardAvoidingView
                 behavior={"padding"}

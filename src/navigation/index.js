@@ -11,10 +11,10 @@ import SignUpScreen from '../screens/SignUpScreen/SignUpScreen';
 // import ForgotPasswordScreen from '../screens/ForgotPasswordScreen/ForgotPasswordScreen';
 // import NewPasswordScreen from '../screens/NewPasswordScreen/NewPasswordScreen';
 
+// import CreateContainerScreen from '../screens/CreateScreen/CreateContainerScreen';
 import HomeScreen from '../screens/HomeScreen/HomeScreen'
 import JournalContainerScreen from '../screens/JournalScreen/JournalContainerScreen/JournalContainerScreen';
 import ActionContainerScreen from '../screens/ActionScreen/ActionContainerScreen';
-import CreateContainerScreen from '../screens/CreateScreen/CreateContainerScreen';
 import MotivationContainerScreen from '../screens/MotivationScreen/MotivationContainerScreen';
 
 import ShowActionScreen from '../screens/ActionScreen/ShowActionScreen/ShowActionScreen';
@@ -23,10 +23,10 @@ import CreateJournalScreen from '../screens/JournalScreen/CreateJournalScreen/Cr
 const AuthStack = createStackNavigator();
 const HomeStack = createStackNavigator();
 const MotivationStack = createStackNavigator();
-const CreateStack = createStackNavigator();
 const ActionStack = createStackNavigator();
 const JournalStack = createStackNavigator();
 const Tabs = createBottomTabNavigator();
+// const CreateStack = createStackNavigator();
 
 // let headerTitleOptions = ({ route }) => ({ title: route.params.name })
 
@@ -40,33 +40,36 @@ const HomeStackScreen = () => (
 )
 const MotivationStackScreen = () => (
     <MotivationStack.Navigator>
-        <MotivationStack.Screen name='Motivation' component={MotivationContainerScreen} />
+        <MotivationStack.Screen name='Motivations' component={MotivationContainerScreen} />
         {/* <MotivationStack.Screen name='CreateMotivation' component={CreateMotivationScreen} />
         <MotivationStack.Screen name='ShowMotivation' component={ShowMotivationScreen} />
         <MotivationStack.Screen name='MotivationContainer' component={MotivationContainerScreen} /> */}
     </MotivationStack.Navigator>
 )
-const CreateStackScreen = () => (
-    <CreateStack.Navigator>
-        <CreateStack.Screen name='Create' component={CreateContainerScreen} />
-        <CreateStack.Screen name='CreateJournal' component={CreateJournalScreen} />
-        {/* <CreateStack.Screen name='CreateMotivation' component={CreateMotivationScreen} /> */}
-        {/* <CreateStack.Screen name='CreateAction' component={CreateActionScreen} /> */}
-    </CreateStack.Navigator>
-)
+
 const ActionStackScreen = () => (
     <ActionStack.Navigator>
-        <ActionStack.Screen name='Action' component={ActionContainerScreen} />
+        <ActionStack.Screen name='Actions' component={ActionContainerScreen} />
         <ActionStack.Screen name='ShowAction' component={ShowActionScreen} />
     </ActionStack.Navigator>
 )
 const JournalStackScreen = () => (
     <JournalStack.Navigator>
-        <JournalStack.Screen name='Journal' component={JournalContainerScreen} />
+        <JournalStack.Screen name='Journals' component={JournalContainerScreen} />
         <JournalStack.Screen name='CreateJournal' component={CreateJournalScreen} />
         <JournalStack.Screen name='JournalContainer' component={JournalContainerScreen} />
     </JournalStack.Navigator>
 )
+
+// const CreateStackScreen = () => (
+//     <CreateStack.Navigator>
+//         <CreateStack.Screen name='Create' component={CreateContainerScreen} />
+//         <CreateStack.Screen name='CreateJournal' component={CreateJournalScreen} />
+//         {/* <CreateStack.Screen name='CreateMotivation' component={CreateMotivationScreen} /> */}
+//         {/* <CreateStack.Screen name='CreateAction' component={CreateActionScreen} /> */}
+//     </CreateStack.Navigator>
+// )
+
 
 const Navigation = () => {
 
@@ -105,7 +108,7 @@ const Navigation = () => {
         <NavigationContainer>
             {userCookie ? (
                 <Tabs.Navigator screenOptions={{headerShown: false}}>
-                    <Tabs.Screen name="Home" component={HomeStackScreen} 
+                    <Tabs.Screen name="HOME" component={HomeStackScreen} 
                     // options={{
                     //     tabBarIcon: ({focused}) => (
                     //         <View>
@@ -122,10 +125,10 @@ const Navigation = () => {
                     //     )
                     // }} 
                     />
-                    <Tabs.Screen name="Motivation" component={MotivationStackScreen} />
-                    <Tabs.Screen name="Create" component={CreateStackScreen} />
-                    <Tabs.Screen name="Action" component={ActionStackScreen} />
-                    <Tabs.Screen name="Journal" component={JournalStackScreen} />
+                    <Tabs.Screen name="MOTIVATION" component={MotivationStackScreen} />
+                    {/* <Tabs.Screen name="ADD" component={CreateStackScreen} /> */}
+                    <Tabs.Screen name="ACTION" component={ActionStackScreen} />
+                    <Tabs.Screen name="JOURNAL" component={JournalStackScreen} />
                 </Tabs.Navigator>
             ) : (
                 <AuthStack.Navigator initialRouteName="SignIn" >

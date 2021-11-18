@@ -39,9 +39,9 @@ const SignInScreen = () => {
               })
           }
 
-    const onForgotPasswordPressed = () => {
-        navigation.navigate('ForgotPassword', { name: "Forgot Password"});
-    }
+    // const onForgotPasswordPressed = () => {
+    //     navigation.navigate('ForgotPassword', { name: "Forgot Password"});
+    // }
     
     const onSignUpPressed = () => {
         navigation.navigate('SignUp', { name: "Create an Account"});
@@ -58,7 +58,7 @@ const SignInScreen = () => {
 
             <CustomButton text='Sign In' onPress={onSignInPressed} type='PRIMARY' />
 
-            <CustomButton text='Forgot password?' onPress={onForgotPasswordPressed} type='TERTIARY' />
+            {/* <CustomButton text='Forgot password?' onPress={onForgotPasswordPressed} type='TERTIARY' /> */}
 
             {/* <SocialSignInButtons /> */}
 

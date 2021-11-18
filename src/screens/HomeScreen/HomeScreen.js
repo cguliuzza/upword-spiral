@@ -21,7 +21,7 @@ const HomeScreen = ({ route }) => {
     return (
         <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.root}>
-            <Text style={{ fontSize: 35, alignItems: 'center' }}>Home, sweet home!</Text>
+            {/* <Text style={{ fontSize: 35, alignItems: 'center' }}>Home, sweet home!</Text> */}
             
             <CustomButton  text='Write in Journal' onPress={onJournalPressed} type='PRIMARY' />
             <CustomButton  text='Show Journals' onPress={onShowJournalsPressed} type='PRIMARY' />

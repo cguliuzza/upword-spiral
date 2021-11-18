@@ -11,9 +11,9 @@ const CreateJournalScreen = ({ }) => {
     const [ journalTitle, setJournalTitle ] = useState();
     const [ journalMessage, setJournalMessage ] = useState();
   
-    const onHomePressed = () => {
-      navigation.navigate('Home');
-    }
+    // const onHomePressed = () => {
+    //   navigation.navigate('Home');
+    // }
 
     const onJournalContainerPressed = () => {
       navigation.navigate('JournalContainer', { name: "Journal Entries"});
@@ -55,7 +55,7 @@ const CreateJournalScreen = ({ }) => {
 
             <CustomButton  text='Journal Entries' onPress={onJournalContainerPressed} type='SECONDARY' />
 
-            <CustomButton  text='Home' onPress={onHomePressed} type='TERTIARY' />
+            {/* <CustomButton  text='Home' onPress={onHomePressed} type='TERTIARY' /> */}
           </KeyboardAvoidingView>
         </View>
       </ScrollView>

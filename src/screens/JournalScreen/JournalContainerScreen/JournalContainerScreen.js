@@ -19,9 +19,9 @@ const JournalContainerScreen = () => {
         navigation.navigate('CreateJournal', { name: "Create Journal"})
     }
 
-    const onHomePressed = () => {
-        navigation.navigate('Home');
-    }
+    // const onHomePressed = () => {
+    //     navigation.navigate('Home');
+    // }
 
     //   const selectJournal = () => {
     //     navigation.navigate('ShowJournal');
@@ -30,10 +30,10 @@ const JournalContainerScreen = () => {
     return (
         <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.root}>
-            <Text style={{ fontSize: 35, alignItems: 'center' }}>Journal Archive</Text>
+            <Text style={{ fontSize: 35, alignItems: 'center' }}>Journal Entries</Text>
 
             <CustomButton  text='Write in Journal' onPress={onJournalPressed} type='PRIMARY' />
-            <CustomButton  text='Home' onPress={onHomePressed} type='TERTIARY' />
+            {/* <CustomButton  text='Home' onPress={onHomePressed} type='TERTIARY' /> */}
 
             <View>{journals.map(journal => <JournalCard journal={journal} key={journal.id} />).reverse()}</View>
 
