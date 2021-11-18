@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { View, Text, StyleSheet, ScrollView, KeyboardAvoidingView, Pressable, TextInput, Keyboard } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, Pressable } from 'react-native';
 import CustomButton from '../../../components/CustomButton/CustomButton';
 import ActionCard from '../../../components/CustomCard/ActionCard/ActionCard';
 
@@ -8,9 +8,6 @@ const ActionContainerScreen = () => {
     const navigation = useNavigation();
     
     const [ actions, setActions ] = useState([])
-
-    const [ actionName, setActionName ] = useState()
-    const [ actionDescription, setActionDescription ] = useState()
     
     useEffect(() => {
         fetch('http://localhost:3000/api/v1/actions')
@@ -21,59 +18,21 @@ const ActionContainerScreen = () => {
     const onActionPressed = () => {
         navigation.navigate('CreateAction');
     }
-
-    // const onHomePressed = () => {
-    //     navigation.navigate('Home');
-    // }
-    
-    const handleAddAction = () => {
-        Keyboard.dismiss();
-        fetch('http://localhost:3000/api/v1/actions', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({name: actionName, description: actionDescription})
-      })
-
-        setActions([...actions, {name: actionName, description: actionDescription}])
-        setActionName(null);
-        setActionDescription(null);
-    }
     
     const selectAction = () => {
-        navigation.navigate('ShowAction', { name: "5 Minute Moment"});
+        navigation.navigate('ShowAction');
     }
 
     return (
         <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.root}>
-            <Text style={{ fontSize: 35, alignItems: 'center' }}>5 Minute Moments</Text>
+            {/* <Text style={{ fontSize: 35, alignItems: 'center' }}>Action Entries</Text> */}
 
             <CustomButton  text='Write an Action' onPress={onActionPressed} type='PRIMARY' />
-
 
         <Pressable onPress={selectAction}>
             <View>{actions.map(action => <ActionCard action={action} key={action.id} />).reverse()}</View>
         </Pressable>
-
-            {/* <CustomButton  text='Home' onPress={onHomePressed} type='PRIMARY' /> */}
-
-            <KeyboardAvoidingView
-                behavior={"padding"}
-                style={styles.writeActionWrapper}
-            >
-                <TextInput placeholder='Add action name' style={styles.input} value={actionName} type='PRIMARY' onChangeText={text => setActionName(text)} />
-
-                <TextInput placeholder='Add action description' style={styles.input} value={actionDescription} type='PRIMARY' onChangeText={text => setActionDescription(text)} />
-
-                <Pressable onPress={handleAddAction}>
-                    <View style={styles.addWrapper}>
-                        <Text style={styles.addText}>Create New Action</Text>
-                    </View>
-                </Pressable>
-            </KeyboardAvoidingView>
-
         </View>
         </ScrollView>
     )

@@ -33,8 +33,6 @@ const CreateJournalScreen = ({ }) => {
       setJournals([...journals, {title: journalTitle, message: journalMessage}]);
       setJournalTitle(null);
       setJournalMessage(null);
-
-      // navigation.navigate('JournalContainer')
     }
 
     return (
@@ -49,13 +47,10 @@ const CreateJournalScreen = ({ }) => {
             <TextInput placeholder='Title' name='title' value={journalTitle} onChangeText={text => setJournalTitle(text)} style={styles.input} />
 
             <TextInput placeholder="What's on your mind?" name='message' value={journalMessage} onChangeText={text => setJournalMessage(text)} style={styles.input} />
-            {/* multiline={true} */}
             
             <CustomButton text='Save New Journal' onPress={handleAddJournal} type='PRIMARY' />
 
             <CustomButton  text='Journal Entries' onPress={onJournalContainerPressed} type='SECONDARY' />
-
-            {/* <CustomButton  text='Home' onPress={onHomePressed} type='TERTIARY' /> */}
           </KeyboardAvoidingView>
         </View>
       </ScrollView>

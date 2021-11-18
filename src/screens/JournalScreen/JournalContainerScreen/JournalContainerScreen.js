@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, Pressable } from 'react-native';
 import CustomButton from '../../../components/CustomButton/CustomButton';
 import JournalCard from '../../../components/CustomCard/JournalCard/JournalCard';
 
@@ -19,30 +19,22 @@ const JournalContainerScreen = () => {
         navigation.navigate('CreateJournal', { name: "Create Journal"})
     }
 
-    // const onHomePressed = () => {
-    //     navigation.navigate('Home');
-    // }
-
-    //   const selectJournal = () => {
-    //     navigation.navigate('ShowJournal');
-    // }
+    const selectJournal = () => {
+        navigation.navigate('ShowJournal');
+    }
 
     return (
         <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.root}>
-            <Text style={{ fontSize: 35, alignItems: 'center' }}>Journal Entries</Text>
+            {/* <Text style={{ fontSize: 35, alignItems: 'center' }}>Journal Entries</Text> */}
 
             <CustomButton  text='Write in Journal' onPress={onJournalPressed} type='PRIMARY' />
-            {/* <CustomButton  text='Home' onPress={onHomePressed} type='TERTIARY' /> */}
 
+        <Pressable onPress={selectJournal}>
             <View>{journals.map(journal => <JournalCard journal={journal} key={journal.id} />).reverse()}</View>
+        </Pressable>
 
         </View>
-
-        {/* <Pressable onPress={selectJournal}>
-            <View>{journals.map(journal => <JournalCard journal={journal} key={journal.id} />).reverse()}</View>
-        </Pressable> */}
-
         </ScrollView>
     )
 }
