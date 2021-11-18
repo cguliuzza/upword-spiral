@@ -16,6 +16,11 @@ const SignInScreen = () => {
   const [ email, setEmail ] = useState();
   const [ password, setPassword ] = useState();
 
+  const componentDidMount = () => {
+    AsyncStorage.setItem('userId');
+    this.handleData();
+    }
+
     const onSignInPressed = ( event ) => {
       // Keyboard.dismiss();
             fetch('http://127.0.0.1:3000/api/v1/login', {
@@ -29,6 +34,7 @@ const SignInScreen = () => {
                 if (res.ok) {
                   res.json()
                   .then(user => {
+                    // console.log(user);
                     setUser(user);
                     signIn();
                   })
