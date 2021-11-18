@@ -13,7 +13,7 @@ const CreateMotivationScreen = () => {
     // add motivationLikes
 
     const onMotivationContainerPressed = () => {
-        navigation.navigate('MotivationContainer', { name: "Motivation Entries"});
+        navigation.navigate('MotivationContainer');
     }
 
     const handleAddMotivation = () => {

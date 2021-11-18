@@ -47,7 +47,7 @@ const HomeStackScreen = () => (
 )
 const MotivationStackScreen = () => (
     <MotivationStack.Navigator>
-        <MotivationStack.Screen name='Motivations' component={MotivationContainerScreen} />
+        <MotivationStack.Screen name='MotivationContainer' component={MotivationContainerScreen} />
         <MotivationStack.Screen name='CreateMotivation' component={CreateMotivationScreen} />
         <MotivationStack.Screen name='ShowMotivation' component={ShowMotivationScreen} />
     </MotivationStack.Navigator>
