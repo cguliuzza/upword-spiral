@@ -4,11 +4,11 @@ import { View, Text, StyleSheet } from 'react-native'
 const ActionCard = ({ action }) => {
 
     return (
-        <View style={styles.actionCard}>
+        <View style={styles.container}>
             <View>
                 <Text 
                     value={action.name} 
-                    style={styles.name}>
+                    style={styles.title}>
                 {action.name}
                 </Text>
 
@@ -21,7 +21,7 @@ const ActionCard = ({ action }) => {
 
                 <Text 
                     value={action.description} 
-                    style={styles.description}> 
+                    style={styles.message}> 
                 {action.description}
                 </Text>
             </View>
@@ -29,36 +29,26 @@ const ActionCard = ({ action }) => {
     )
 }
     
-    const styles = StyleSheet.create({
-        actionCard: {
-            backgroundColor: 'white',
-            borderColor: '#e8e8e8',
-            borderWidth: 1,
-            borderRadius: 5,
-            padding: 15,
-            paddingHorizontal: 20,
-            marginVertical: 5,
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-        },
-        name: {
-            fontSize: 20,
-            fontWeight: '800',
-            color: '#363739', 
-            flexDirection: 'row',
-            alignItems: 'flex-start',
-            flexWrap: 'wrap',
-            maxWidth: '95%'
-        },
-        description: {
-            color: '#363739',
-            fontWeight: '500',
-            flexDirection: 'row',
-            alignItems: 'flex-start',
-            flexWrap: 'wrap',
-            maxWidth: '95%'
-        }
-    })
+const styles = StyleSheet.create({
+    container: {
+        backgroundColor: 'white',
+        borderColor: '#e8e8e8',
+        borderWidth: 1,
+        borderRadius: 5,
+        padding: 15,
+        paddingHorizontal: 20,
+        marginVertical: 5,
+    },
+    title: {
+        fontSize: 20,
+        fontWeight: '800',
+        color: '#363739', 
+    },
+    message: {
+        color: '#363739',
+        fontWeight: '500',
+        marginTop: 5,
+    }
+})
 
 export default ActionCard;

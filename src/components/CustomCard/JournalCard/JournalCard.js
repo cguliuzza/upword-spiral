@@ -50,13 +50,14 @@ const JournalCard = ({ journal }) => {
             marginVertical: 5,
         },
         title: {
-            fontSize: 25,
+            fontSize: 20,
             fontWeight: '800',
             color: '#363739', 
         },
         message: {
             color: '#363739',
             fontWeight: '500',
+            marginTop: 5,
         }
     })
 

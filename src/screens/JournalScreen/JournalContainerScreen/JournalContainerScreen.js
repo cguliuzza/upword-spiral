@@ -19,9 +19,9 @@ const JournalContainerScreen = () => {
         navigation.navigate('CreateJournal', { name: "Create Journal"})
     }
 
-    const selectJournal = () => {
-        navigation.navigate('ShowJournal');
-    }
+    // const selectJournal = () => {
+    //     navigation.navigate('ShowJournal');
+    // }
 
     return (
         <ScrollView showsVerticalScrollIndicator={false}>
@@ -30,9 +30,9 @@ const JournalContainerScreen = () => {
 
             <CustomButton  text='Write in Journal' onPress={onJournalPressed} type='PRIMARY' />
 
-        <Pressable onPress={selectJournal}>
+        {/* <Pressable onPress={selectJournal}> */}
             <View>{journals.map(journal => <JournalCard journal={journal} key={journal.id} />).reverse()}</View>
-        </Pressable>
+        {/* </Pressable> */}
 
         </View>
         </ScrollView>

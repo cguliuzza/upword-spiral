@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useMemo } from 'react'
-import { NavigationContainer, Image, View } from '@react-navigation/native'
+import { NavigationContainer, Image, View, getFocusedRouteNameFromRoute } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+// import { Ionicons } from '@expo/vector-icons';
+import Ionicons from 'react-native-vector-icons/Ionicons'
 import SplashScreen from '../screens/SplashScreen';
 import { AuthContext } from './context';
 
@@ -112,7 +114,28 @@ const Navigation = () => {
         <AuthContext.Provider value={authContext}>
         <NavigationContainer>
             {userCookie ? (
-                <Tabs.Navigator screenOptions={{headerShown: false}}>
+                <Tabs.Navigator 
+                    // screenOptions={{headerShown: false}}
+                    screenOptions={({ route }) => ({
+                            tabBarIcon: ({focused, color, size}) => {
+                                let iconName;
+                                let routeName = route.name;
+
+                                if (routeName === "HOME") {
+                                    iconName = focused ? 'home' : 'home-outline'
+                                } else if (routeName === "MOTIVATION") {
+                                    iconName = focused ? 'trending-up' : 'trending-up-outline'
+                                } else if (routeName === "ACTION") {
+                                    iconName = focused ? 'timer' : 'timer-outline'
+                                } else if (routeName === "JOURNAL") {
+                                    iconName = focused ? 'book' : 'book-outline'
+                                }
+
+                                return <Ionicons name={iconName} size={size} color={color} />
+                            },
+                        })
+                    }>
+                    
                     <Tabs.Screen name="HOME" component={HomeStackScreen} 
                     // options={{
                     //     tabBarIcon: ({focused}) => (

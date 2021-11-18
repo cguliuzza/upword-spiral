@@ -19,9 +19,9 @@ const MotivationContainerScreen = () => {
         navigation.navigate('CreateMotivation', { name: "Create Motivation"})
     }
 
-    const selectMotivation = () => {
-        navigation.navigate('ShowMotivation');
-    }
+    // const selectMotivation = () => {
+    //     navigation.navigate('ShowMotivation');
+    // }
 
     return (
         <ScrollView showsVerticalScrollIndicator={false}>
@@ -30,9 +30,9 @@ const MotivationContainerScreen = () => {
 
             <CustomButton  text='Write new Motivation' onPress={onMotivationPressed} type='PRIMARY' />
 
-        <Pressable onPress={selectMotivation}>
+        {/* <Pressable onPress={selectMotivation}> */}
             <View>{motivations.map(motivation => <MotivationCard motivation={motivation} key={motivation.id} />).reverse()}</View>
-        </Pressable>
+        {/* </Pressable> */}
 
         </View>
         </ScrollView>

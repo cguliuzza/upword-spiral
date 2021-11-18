@@ -38,7 +38,7 @@ const CreateJournalScreen = ({ }) => {
     return (
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.root}>
-            <Text style={{ fontSize: 35, alignItems: 'center' }}>Journal</Text>
+            {/* <Text style={{ fontSize: 35, alignItems: 'center' }}>Journal</Text> */}
 
           <KeyboardAvoidingView
                 behavior={"padding"} style={styles.writeActionWrapper}
@@ -46,7 +46,16 @@ const CreateJournalScreen = ({ }) => {
 
             <TextInput placeholder='Title' name='title' value={journalTitle} onChangeText={text => setJournalTitle(text)} style={styles.input} />
 
-            <TextInput placeholder="What's on your mind?" name='message' value={journalMessage} onChangeText={text => setJournalMessage(text)} style={styles.input} />
+            <TextInput 
+              placeholder="What's on your mind?" 
+              name='message' 
+              value={journalMessage} 
+              onChangeText={text => setJournalMessage(text)} 
+              multiline={true}
+              scrollEnabled={true}
+              spellCheck={true}
+              autoCapitalize={'sentences'}
+              style={styles.input} />
             
             <CustomButton text='Save New Journal' onPress={handleAddJournal} type='PRIMARY' />
 
@@ -64,8 +73,8 @@ const styles = StyleSheet.create({
     paddingTop: 45
 },
 writeActionWrapper: {
-    position: 'absolute',
-    bottom: -300,
+    // position: 'absolute',
+    // bottom: -300,
     width: '100%',
     flexDirection: 'column',
     alignItems: 'center'
@@ -79,6 +88,7 @@ input: {
     borderWidth: 1,
     width: '95%',
     marginBottom: 15,
+    maxHeight: 350,
 },
 addWrapper: {
     paddingVertical: 15,
