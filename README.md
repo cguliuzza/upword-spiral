@@ -18,3 +18,13 @@ Olive #696d58
 Slate Blue #79868e
 
 Dark Gray #363739
+
+### How Do I Get The Server Started?
+
+#### Desktop: Download the XCode application on your Apple computer from the App Store
+
+1. In VSCode, run the following command in your terminal: `npm start`
+2. Type `y` and hit `Enter` to Install Expo CLI globally on your machine.
+3. Run the following command in your terminal: `npx expo start`
+
+#### Mobile: Download the Expo Go application on your iPhone from the App Store
