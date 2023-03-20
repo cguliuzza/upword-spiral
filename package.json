@@ -1,11 +1,14 @@
 {
+  "name": "upward-spiral-mindfulness-app",
+  "version": "0.1.0",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "lint": "eslint ."
   },
   "dependencies": {
     "@expo/vector-icons": "^12.0.5",
@@ -17,16 +20,18 @@
     "expo-status-bar": "~1.1.0",
     "react": "17.0.1",
     "react-dom": "17.0.1",
-    "react-native": "0.64.2",
+    "react-native": "^0.64.3",
+    "react-native-gesture-handler": "~1.10.2",
     "react-native-navigation": "^7.23.1-hotfix.1",
     "react-native-safe-area-context": "^3.3.2",
     "react-native-screens": "~3.8.0",
     "react-native-web": "0.17.1",
-    "react-router-dom": "^6.0.1",
-    "react-native-gesture-handler": "~1.10.2"
+    "react-router-dom": "^6.0.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.9"
+    "@babel/core": "^7.12.9",
+    "@react-native-community/eslint-config": "^3.2.0",
+    "eslint": "^8.36.0"
   },
   "private": true
 }
