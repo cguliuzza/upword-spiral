@@ -1,50 +1,55 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { View, Text, StyleSheet, ScrollView, Pressable } from 'react-native';
+import { View, StyleSheet, ScrollView, Pressable } from 'react-native';
 import CustomButton from '../../../components/CustomButton/CustomButton';
 import JournalCard from '../../../components/CustomCard/JournalCard/JournalCard';
 
 const JournalContainerScreen = () => {
-    const navigation = useNavigation();
-    
-    const [ journals, setJournals ] = useState([])
-    
-    useEffect(() => {
-        fetch('http://localhost:3000/api/v1/journals')
-        .then(resp => resp.json())
-        .then(journalData => setJournals(journalData))
-    }, [])
+  const navigation = useNavigation();
+  const [journals, setJournals] = useState([]);
 
-    const onJournalPressed = () => {
-        navigation.navigate('CreateJournal', { name: "Create Journal"})
-    }
+  useEffect(() => {
+    fetch('http://localhost:3000/api/v1/journals')
+      .then((resp) => resp.json())
+      .then((journalData) => setJournals(journalData));
+  }, []);
 
-    const selectJournal = () => {
-        navigation.navigate('ShowJournal');
-    }
+  const onJournalPressed = () => {
+    navigation.navigate('CreateJournal', { name: 'Create Journal' });
+  };
 
-    return (
-        <ScrollView showsVerticalScrollIndicator={false}>
-        <View style={styles.root}>
-            {/* <Text style={{ fontSize: 35, alignItems: 'center' }}>Journal Entries</Text> */}
+  const selectJournal = () => {
+    navigation.navigate('ShowJournal');
+  };
 
-            <CustomButton  text='Write in Journal' onPress={onJournalPressed} type='PRIMARY' />
-
+  return (
+    <ScrollView showsVerticalScrollIndicator={false}>
+      <View style={styles.root}>
+        <CustomButton
+          text='Write in Journal'
+          onPress={onJournalPressed}
+          type='PRIMARY'
+        />
         <Pressable onPress={selectJournal}>
-            <View>{journals.map(journal => <JournalCard journal={journal} key={journal.id} />).reverse()}</View>
+          <View>
+            {journals
+              .map((journal) => (
+                <JournalCard journal={journal} key={journal.id} />
+              ))
+              .reverse()}
+          </View>
         </Pressable>
-
-        </View>
-        </ScrollView>
-    )
-}
+      </View>
+    </ScrollView>
+  );
+};
 
 const styles = StyleSheet.create({
-root: {
+  root: {
     alignItems: 'center',
     padding: 20,
-    paddingTop: 45
-}
-})
+    paddingTop: 45,
+  },
+});
 
-export default JournalContainerScreen
+export default JournalContainerScreen;

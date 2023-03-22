@@ -1,1 +1,1 @@
-export { default } from './ShowActionScreen'
+export { default } from './ShowActionScreen';

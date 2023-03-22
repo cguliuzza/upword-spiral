@@ -1,1 +1,1 @@
-export { default } from './CreateJournalScreen'
+export { default } from './CreateJournalScreen';

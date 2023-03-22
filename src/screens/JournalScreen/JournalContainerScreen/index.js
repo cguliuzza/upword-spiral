@@ -1,1 +1,1 @@
-export { default } from './JournalContainerScreen'
+export { default } from './JournalContainerScreen';
