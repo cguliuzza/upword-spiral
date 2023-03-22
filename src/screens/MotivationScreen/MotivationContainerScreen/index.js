@@ -1,1 +1,1 @@
-export { default } from './MotivationContainerScreen'
+export { default } from './MotivationContainerScreen';

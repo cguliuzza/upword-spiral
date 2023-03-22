@@ -1,57 +1,67 @@
-import React from 'react'
-import { Text, StyleSheet, Pressable } from 'react-native'
+import React from 'react';
+import { Text, StyleSheet, Pressable } from 'react-native';
 
-const CustomButton = ({ onPress, text, type='PRIMARY', bgroundColor, fgroundColor }) => {
-    return (
-        <Pressable 
-            onPress={onPress} 
-            style={[
-                styles.container, 
-                styles[`container_${type}`], 
-                bgroundColor ? {backgroundColor: bgroundColor} : {} 
-            ]}>
-            <Text 
-                style={[
-                    styles.text, 
-                    styles[`text_${type}`],
-                    fgroundColor ? {color: fgroundColor} : {}
-                ]}>{ text }</Text>
-        </Pressable>
-    )
-}
+const CustomButton = ({
+  onPress,
+  text,
+  type = 'PRIMARY',
+  bgroundColor,
+  fgroundColor,
+}) => {
+  return (
+    <Pressable
+      onPress={onPress}
+      style={[
+        styles.container,
+        styles[`container_${type}`],
+        bgroundColor ? { backgroundColor: bgroundColor } : {},
+      ]}
+    >
+      <Text
+        style={[
+          styles.text,
+          styles[`text_${type}`],
+          fgroundColor ? { color: fgroundColor } : {},
+        ]}
+      >
+        {text}
+      </Text>
+    </Pressable>
+  );
+};
 
 const styles = StyleSheet.create({
-    container: {
-        width: '95%',
-        padding: 15,
-        marginVertical: 8,
-        alignItems: 'center',
-        borderRadius: 5
-    },
+  container: {
+    width: '95%',
+    padding: 15,
+    marginVertical: 8,
+    alignItems: 'center',
+    borderRadius: 5,
+  },
 
-    container_PRIMARY: {
-        backgroundColor: 'teal',
-    },
+  container_PRIMARY: {
+    backgroundColor: 'teal',
+  },
 
-    container_SECONDARY: {
-        borderColor: 'teal',
-        borderWidth: 2,
-    },
+  container_SECONDARY: {
+    borderColor: 'teal',
+    borderWidth: 2,
+  },
 
-    container_TERTIARY: {},
+  container_TERTIARY: {},
 
-    text: {
-        fontWeight: 'bold',
-        color: 'white'
-    },
+  text: {
+    fontWeight: 'bold',
+    color: 'white',
+  },
 
-    text_SECONDARY: {
-        color: 'teal'
-    },
+  text_SECONDARY: {
+    color: 'teal',
+  },
 
-    text_TERTIARY: {
-        color: 'gray'
-    }
-})
+  text_TERTIARY: {
+    color: 'gray',
+  },
+});
 
-export default CustomButton
+export default CustomButton;

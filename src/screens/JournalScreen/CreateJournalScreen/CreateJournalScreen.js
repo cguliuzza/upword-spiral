@@ -1,76 +1,100 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { View, Text, TextInput, ScrollView, StyleSheet, KeyboardAvoidingView, Keyboard } from 'react-native'
-import CustomButton from '../../../components/CustomButton/CustomButton'
+import {
+  View,
+  Text,
+  TextInput,
+  ScrollView,
+  StyleSheet,
+  KeyboardAvoidingView,
+  Keyboard,
+} from 'react-native';
+import CustomButton from '../../../components/CustomButton/CustomButton';
 
-const CreateJournalScreen = ({ }) => { 
-    const navigation = useNavigation();
+const CreateJournalScreen = ({}) => {
+  const navigation = useNavigation();
+  const [journals, setJournals] = useState([]);
+  const [journalTitle, setJournalTitle] = useState();
+  const [journalMessage, setJournalMessage] = useState();
+  const onJournalContainerPressed = () => {
+    navigation.navigate('JournalContainer', { name: 'Journal Entries' });
+  };
 
-    const [ journals, setJournals ] = useState([]);
+  const handleAddJournal = () => {
+    Keyboard.dismiss();
 
-    const [ journalTitle, setJournalTitle ] = useState();
-    const [ journalMessage, setJournalMessage ] = useState();
-  
-    // const onHomePressed = () => {
-    //   navigation.navigate('Home');
-    // }
+    fetch('http://localhost:3000/api/v1/journals', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ title: journalTitle, message: journalMessage }),
+    });
 
-    const onJournalContainerPressed = () => {
-      navigation.navigate('JournalContainer', { name: "Journal Entries"});
-    }
-    
-    const handleAddJournal = () => {
-      Keyboard.dismiss();
+    setJournals([
+      ...journals,
+      { title: journalTitle, message: journalMessage },
+    ]);
+    setJournalTitle(null);
+    setJournalMessage(null);
+  };
 
-      fetch('http://localhost:3000/api/v1/journals', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({title: journalTitle, message: journalMessage})
-      })
+  return (
+    <ScrollView showsVerticalScrollIndicator={false}>
+      <View style={styles.root}>
+        <Text style={{ fontSize: 35, alignItems: 'center' }}>Journal</Text>
 
-      setJournals([...journals, {title: journalTitle, message: journalMessage}]);
-      setJournalTitle(null);
-      setJournalMessage(null);
-    }
+        <KeyboardAvoidingView
+          behavior={'padding'}
+          style={styles.writeActionWrapper}
+        >
+          <TextInput
+            placeholder='Title'
+            name='title'
+            value={journalTitle}
+            onChangeText={(text) => setJournalTitle(text)}
+            style={styles.input}
+          />
 
-    return (
-      <ScrollView showsVerticalScrollIndicator={false}>
-        <View style={styles.root}>
-            <Text style={{ fontSize: 35, alignItems: 'center' }}>Journal</Text>
+          <TextInput
+            placeholder="What's on your mind?"
+            name='message'
+            value={journalMessage}
+            onChangeText={(text) => setJournalMessage(text)}
+            style={styles.input}
+          />
 
-          <KeyboardAvoidingView
-                behavior={"padding"} style={styles.writeActionWrapper}
-          >
+          <CustomButton
+            text='Save New Journal'
+            onPress={handleAddJournal}
+            type='PRIMARY'
+          />
 
-            <TextInput placeholder='Title' name='title' value={journalTitle} onChangeText={text => setJournalTitle(text)} style={styles.input} />
-
-            <TextInput placeholder="What's on your mind?" name='message' value={journalMessage} onChangeText={text => setJournalMessage(text)} style={styles.input} />
-            
-            <CustomButton text='Save New Journal' onPress={handleAddJournal} type='PRIMARY' />
-
-            <CustomButton  text='Journal Entries' onPress={onJournalContainerPressed} type='SECONDARY' />
-          </KeyboardAvoidingView>
-        </View>
-      </ScrollView>
-    )
-}
+          <CustomButton
+            text='Journal Entries'
+            onPress={onJournalContainerPressed}
+            type='SECONDARY'
+          />
+        </KeyboardAvoidingView>
+      </View>
+    </ScrollView>
+  );
+};
 
 const styles = StyleSheet.create({
   root: {
     alignItems: 'center',
     padding: 20,
-    paddingTop: 45
-},
-writeActionWrapper: {
+    paddingTop: 45,
+  },
+  writeActionWrapper: {
     position: 'absolute',
     bottom: -300,
     width: '100%',
     flexDirection: 'column',
-    alignItems: 'center'
-},
-input: {
+    alignItems: 'center',
+  },
+  input: {
     paddingVertical: 15,
     paddingHorizontal: 15,
     backgroundColor: 'white',
@@ -79,20 +103,19 @@ input: {
     borderWidth: 1,
     width: '95%',
     marginBottom: 15,
-},
-addWrapper: {
+  },
+  addWrapper: {
     paddingVertical: 15,
     paddingHorizontal: 15,
     backgroundColor: 'teal',
     borderRadius: 5,
     justifyContent: 'center',
     alignItems: 'center',
-},
-addText: {
+  },
+  addText: {
     fontWeight: 'bold',
     color: 'white',
-}
-})
+  },
+});
 
 export default CreateJournalScreen;
-

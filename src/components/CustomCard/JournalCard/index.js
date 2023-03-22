@@ -1,1 +1,1 @@
-export {default} from './JournalCard';
+export { default } from './JournalCard';

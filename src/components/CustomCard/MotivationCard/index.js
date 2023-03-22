@@ -1,1 +1,1 @@
-export {default} from './MotivationCard';
+export { default } from './MotivationCard';

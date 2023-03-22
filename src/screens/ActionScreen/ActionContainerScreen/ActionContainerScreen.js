@@ -5,53 +5,58 @@ import CustomButton from '../../../components/CustomButton/CustomButton';
 import ActionCard from '../../../components/CustomCard/ActionCard/ActionCard';
 
 const ActionContainerScreen = () => {
-    const navigation = useNavigation();
-    
-    const [ actions, setActions ] = useState([])
-    
-    useEffect(() => {
-        fetch('http://localhost:3000/api/v1/actions')
-        .then(resp => resp.json())
-        .then(actionData => setActions(actionData))
-    }, [])
+  const navigation = useNavigation();
 
-    const onActionPressed = () => {
-        navigation.navigate('CreateAction');
-    }
-    
-    const selectAction = () => {
-        navigation.navigate('ShowAction');
-    }
+  const [actions, setActions] = useState([]);
 
-    return (
-        <ScrollView showsVerticalScrollIndicator={false}>
-        <View style={styles.root}>
-            {/* <Text style={{ fontSize: 35, alignItems: 'center' }}>Action Entries</Text> */}
+  useEffect(() => {
+    fetch('http://localhost:3000/api/v1/actions')
+      .then((resp) => resp.json())
+      .then((actionData) => setActions(actionData));
+  }, []);
 
-            <CustomButton  text='Write an Action' onPress={onActionPressed} type='PRIMARY' />
+  const onActionPressed = () => {
+    navigation.navigate('CreateAction');
+  };
 
+  const selectAction = () => {
+    navigation.navigate('ShowAction');
+  };
+
+  return (
+    <ScrollView showsVerticalScrollIndicator={false}>
+      <View style={styles.root}>
+        <CustomButton
+          text='Write an Action'
+          onPress={onActionPressed}
+          type='PRIMARY'
+        />
         <Pressable onPress={selectAction}>
-            <View>{actions.map(action => <ActionCard action={action} key={action.id} />).reverse()}</View>
+          <View>
+            {actions
+              .map((action) => <ActionCard action={action} key={action.id} />)
+              .reverse()}
+          </View>
         </Pressable>
-        </View>
-        </ScrollView>
-    )
-}
+      </View>
+    </ScrollView>
+  );
+};
 
 const styles = StyleSheet.create({
-root: {
+  root: {
     alignItems: 'center',
     padding: 20,
-    paddingTop: 45
-},
-writeActionWrapper: {
+    paddingTop: 45,
+  },
+  writeActionWrapper: {
     position: 'absolute',
     bottom: -300,
     width: '100%',
     flexDirection: 'column',
-    alignItems: 'center'
-},
-input: {
+    alignItems: 'center',
+  },
+  input: {
     paddingVertical: 15,
     paddingHorizontal: 15,
     backgroundColor: 'white',
@@ -60,19 +65,19 @@ input: {
     borderWidth: 1,
     width: '95%',
     marginBottom: 15,
-},
-addWrapper: {
+  },
+  addWrapper: {
     paddingVertical: 15,
     paddingHorizontal: 15,
     backgroundColor: 'teal',
     borderRadius: 5,
     justifyContent: 'center',
     alignItems: 'center',
-},
-addText: {
+  },
+  addText: {
     fontWeight: 'bold',
     color: 'white',
-}
-})
+  },
+});
 
-export default ActionContainerScreen
+export default ActionContainerScreen;

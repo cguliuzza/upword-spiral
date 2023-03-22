@@ -1,1 +1,1 @@
-export {default} from './ActionCard';
+export { default } from './ActionCard';
