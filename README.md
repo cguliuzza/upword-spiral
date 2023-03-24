@@ -1,7 +1,10 @@
-# upward-spiral-mindfulness-app-react-native
+# Welcome to Upword Spiral
 
-Flatiron School Phase 5 Project
-Full-Stack mobile application with React Native front end and Rails backend.
+This mobile application promotes mindfulness and support for people with hurts, habits and hangups who are on the road to recovery.
+
+I began building Upword Spiral in November 2021 as my final project for Flatiron School, an online bootcamp where I received a certificate in Full-stack Software Engineering.
+
+The frontend of this app is written in React Native (this repository) and the backend uses Ruby on Rails (a repository called upword-spiral-backend).
 
 ## How Do I Get The Server Started?
 
